@@ -1,0 +1,77 @@
+.faq-section {
+  grid-area: faq;
+
+  & .layout {
+    display: grid;
+    grid-template:
+      "title questions" 1fr
+      "description questions" 1fr
+      / 1fr 1.5fr;
+    row-gap: clamp(10px, 2vw, 30px);
+    column-gap: clamp(50px, 4vw, 100px);
+
+    & h2 {
+      grid-area: title;
+
+      place-self: end;
+    }
+
+    & p {
+      grid-area: description;
+
+      place-self: start;
+    }
+
+    & ul {
+      grid-area: questions;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: clamp(15px, 2vw, 20px);
+
+      & details {
+        & summary {
+          font-size: clamp(16px, 2.5vw, 20px);
+          font-weight: 500;
+          padding: clamp(10px, 2vw, 15px);
+        }
+
+        & p {
+          font-size: clamp(14px, 2.5vw, 18px);
+          padding-block-end: clamp(10px, 2vw, 15px);
+          padding-inline: clamp(10px, 2vw, 15px);
+        }
+      }
+
+    }
+  }
+}
+
+@media (width < 1051px) {
+  .faq-section {
+    & .layout {
+      grid-template:
+        "title description" auto
+        "questions questions" auto
+        / 1fr .5fr;
+      column-gap: clamp(20px, 2vw, 100px);
+    }
+
+    & p {
+      place-self: center;
+    }
+  }
+}
+
+@media (width < 750px) {
+  .faq-section {
+    & .layout {
+      grid-template:
+        "title" auto
+        "description" auto
+        "questions" auto
+        / 1fr;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.step {
+  display: grid;
+  grid-template:
+    "icon" 1fr
+    "title" auto
+    "description" auto
+    / 1fr;
+  gap: clamp(10px, 1vw, 15px);
+
+  position: relative;
+  padding: clamp(15px, 5vw, 30px);
+  min-width: 0;
+  aspect-ratio: 1;
+
+  &:nth-of-type(1) {
+    grid-area: step-1;
+  }
+
+  &:nth-of-type(2) {
+    grid-area: step-2;
+  }
+
+  &:nth-of-type(3) {
+    grid-area: step-3;
+  }
+
+  & p span {
+    font-weight: 700;
+  }
+}
+
+@media (width < 768px) {
+  .step {
+    aspect-ratio: unset;
+  }
+}

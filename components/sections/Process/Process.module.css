@@ -1,0 +1,35 @@
+.process-section {
+  grid-area: process;
+
+  & .layout {
+    display: grid;
+    grid-template:
+      "title title title" auto
+      "description description description" auto
+      "step-1 step-2 step-3" auto
+      / 1fr 1fr 1fr;
+    gap: clamp(10px, 2vw, 30px);
+
+    & h2 {
+      grid-area: title;
+    }
+
+    & p {
+      grid-area: description;
+    }
+  }
+}
+
+@media (width < 768px) {
+  .process-section {
+    & .layout {
+      grid-template:
+        "title" auto
+        "description" auto
+        "step-1" 1fr
+        "step-2" auto
+        "step-3" auto
+        / 1fr;
+    }
+  }
+}

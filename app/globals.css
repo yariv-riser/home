@@ -1,0 +1,111 @@
+@import './css/vars.css';
+@import './css/reset.css';
+@import './css/checkbox.css';
+@import './css/switch.css';
+
+.wrapper-container {
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--riser-green);
+  padding: clamp(10px, 5vw, 50px) clamp(20px, 5vw, 50px);
+
+  &:nth-child(2n) {
+    background-color: var(--riser-purple);
+  }
+}
+
+.wrapper {
+  place-self: center;
+  width: 100%;
+  max-width: 1280px;
+
+  &>p {
+    font-size: clamp(16px, 4.5vw, 25px);
+  }
+}
+
+.card {
+  background-color: var(--riser-white);
+  border: solid 4px var(--riser-black);
+  box-shadow: 2px 2px 0 2px var(--riser-black);
+  border-radius: 3px;
+
+  transition: all .2s ease;
+
+  &.hover-float:hover {
+    transform: translateY(-5px);
+  }
+
+  & a {
+    &:hover {
+      color: var(--riser-purple);
+      text-shadow: none;
+    }
+
+    &.btn {
+      color: var(--riser-white);
+    }
+  }
+}
+
+.btn {
+  font-size: 22px;
+  font-weight: 700;
+  background-color: var(--riser-white);
+
+  padding: 15px 30px;
+
+  border: solid 2px var(--riser-black);
+  border-radius: 3px;
+
+  box-shadow: 2px 2px 0 1px var(--riser-black);
+
+  letter-spacing: 1px;
+  text-align: center;
+
+  transform: translate(0px, 0px);
+  transition: all .1s ease;
+
+  &.white-shadow {
+    border-color: var(--riser-white);
+    box-shadow: 2px 2px 0 1px var(--riser-white);
+  }
+
+  &:hover {
+    color: inherit;
+    box-shadow: 4px 4px 0 1px #111;
+    text-shadow: none;
+    transform: translate(-2px, -2px);
+
+    &.white-shadow {
+      box-shadow: 4px 4px 0 1px var(--riser-white);
+    }
+  }
+
+  &:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 1px var(--riser-black);
+
+    &.white-shadow {
+      box-shadow: 2px 2px 0 1px var(--riser-white);
+    }
+  }
+
+  &.cta {
+    background-color: var(--riser-purple);
+    color: var(--riser-white);
+  }
+}
+
+.input-group label {
+  display: grid;
+  grid-template:
+    'label field' auto
+    /auto 1fr;
+  gap: 10px;
+
+  & span {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,73 @@
+.spotlight-section {
+  grid-area: spotlight;
+
+  & .layout {
+    display: grid;
+    grid-template:
+      "title image-1" 1fr
+      "description image-1" auto
+      "image-2 image-3" auto
+      / 1fr 1fr;
+    gap: clamp(10px, 2vw, 30px);
+
+    & h2 {
+      grid-area: title;
+    }
+
+    & p {
+      grid-area: description;
+    }
+
+    & figure {
+      position: relative;
+      aspect-ratio: 1;
+    }
+
+    & figure:nth-of-type(1) {
+      grid-area: image-1;
+      min-width: 0;
+    }
+
+    & figure:nth-of-type(2) {
+      grid-area: image-2;
+    }
+
+    & figure:nth-of-type(3) {
+      grid-area: image-3;
+    }
+  }
+}
+
+@media (width < 1144px) {
+  .spotlight-section {
+    & .layout {
+      & figure:nth-of-type(1) {
+        aspect-ratio: unset;
+
+        & img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+}
+
+@media (width < 1023px) {
+  .spotlight-section {
+    & .layout {
+      grid-template:
+        "title title" auto
+        "description description" auto
+        ". image-1" auto
+        "image-2 ." auto
+        ". image-3" auto
+        / 1fr 1fr;
+      gap: 0;
+
+      & figure:nth-of-type(1) {
+        aspect-ratio: 1;
+      }
+    }
+  }
+}

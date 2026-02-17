@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  outline-color: var(--riser-purple);
+}
+
+::selection {
+  background-color: var(--riser-white);
+  color: var(--riser-purple);
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--riser-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--riser-white);
+  border: 6px solid var(--riser-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--riser-purple);
+}
+
+body {
+  display: grid;
+  grid-template:
+    'header' auto
+    'content' auto
+    'footer' 100dvh
+    / 1fr;
+  height: 100vh;
+  font-family: var(--font-base);
+  font-size: clamp(16px, 4.5vw, 20px);
+  text-wrap: pretty;
+  line-height: 1.5;
+  color: var(--riser-black);
+  background-color: var(--riser-green);
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template:
+    'hero' calc(100dvh - var(--header-height)) 'about' auto
+    'services' auto
+    'spotlight' auto
+    'process' auto
+    'pricing' auto
+    'faq' auto
+    'contact' auto
+    / 1fr
+  ;
+
+  padding-block-start: var(--header-height);
+
+  &.wrapper-container {
+    padding-block-start: var(--header-height);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  font-size: clamp(22px, 4.5vw, 26px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(55px, 10vw, 80px);
+}
+
+h2 {
+  font-size: clamp(35px, 10vw, 60px);
+}
+
+h3 {
+  font-size: clamp(35px, 10vw, 50px);
+}
+
+p,
+figure {
+  margin: 0;
+}
+
+small {
+  color: var(--riser-grey);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+a {
+  display: inline-block;
+  font-size: inherit;
+  text-decoration: none;
+  border-bottom: dotted 3px var(--riser-purple);
+  color: inherit;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--riser-green);
+    text-shadow: 1px 1px 0 var(--riser-black);
+  }
+}
+
+a[href^="http:"]:not([href*="riser.co.il"]),
+a[href^="https:"]:not([href*="riser.co.il"]) {
+  position: relative;
+
+  &:after {
+    content: '';
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEuMzAxMTdWMTJIMS4zMDExN1Y2LjY1MDc4SDIuNzQ2ODhWMTAuNTU0M0gxMC41NTQzVjIuNzQ2ODhINi42NTA3OFYxLjMwMTE3SDEyWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTguMDk2NDggNi43MjMwNVY4LjA5NjQ4SDYuNzIzMDVWNi43MjMwNUg4LjA5NjQ4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTYuNzIzMDUgNS4zNDkyMlY2LjcyMzA1SDUuMzQ5NjFWNS4zNDkyMkg2LjcyMzA1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUuMzQ5NjEgMFYxLjM3MzQ0SDIuNjAyMzRWMi42MDIzNEgxLjM3MzQ0VjUuMzQ5MjJIMFYwSDUuMzQ5NjFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNS4zNDk2MSAzLjk3NTc4VjUuMzQ5MjJIMy45NzYxN1YzLjk3NTc4SDUuMzQ5NjFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMy45NzYxNyAyLjYwMjM0VjMuOTc1NzhIMi42MDIzNFYyLjYwMjM0SDMuOTc2MTdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: .8ch;
+    width: .8ch;
+    transform: translate(-1.2ch, 1.2ch);
+    transition: transform .1s ease;
+
+  }
+
+  &:hover:after {
+    transform: translate(-1.3ch, 1.1ch);
+  }
+}
+
+a,
+button,
+label,
+summary,
+input[type='checkbox'] {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  list-style: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+button {
+  border-radius: 2px;
+}
+
+input {
+  font: inherit;
+  width: 100%;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px var(--riser-purple);
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary:after {
+  content: '+';
+  font-size: clamp(23px, 3.5vw, 35px);
+}
+
+details:open summary:after {
+  content: '-';
+}
+
+address {
+  font-style: inherit;
+}
+
+mark {
+  background-color: var(--riser-white);
+  color: var(--riser-purple);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

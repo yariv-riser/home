@@ -1,0 +1,90 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+
+  & .image {
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  & .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    z-index: 10;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+
+    & h3 {
+      font-size: clamp(35px, 10vw, 64px);
+    }
+  }
+
+  & .subtitle {
+    margin-block-start: 4px;
+    opacity: 0;
+    color: var(--riser-white);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(5px);
+  }
+
+  &:hover {
+    .image {
+      transform: scale(1.05);
+    }
+
+    .caption {
+      transform: translateY(0);
+    }
+
+    .subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (hover: none) {
+    .subtitle {
+      opacity: 1;
+      transform: none;
+    }
+
+    .caption {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .image,
+    .caption,
+    .subtitle {
+      transition: none;
+      transform: none;
+    }
+
+    &:hover .subtitle {
+      transition: none;
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, color-mix(in srgb, var(--riser-black), transparent 30%), transparent);
+  pointer-events: none;
+}

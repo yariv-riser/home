@@ -1,0 +1,31 @@
+
+import styles from './FAQ.module.css';
+
+export default function FAQ({ faqs }) {
+  return (
+    <section id='faq-section' className={`${styles['faq-section']} wrapper-container`} aria-labelledby="faq-section">
+      <div className={`${styles['layout']} wrapper`}>
+
+        <h2 id="faq-heading">
+          אנחנו יודעים שלצאת לדרך חדשה זה צעד משמעותי.
+        </h2>
+
+        <p>
+          אספנו עבורך את השאלות שתמיד עולות, עם תשובות שיתנו לך את הביטחון לקחת את העסק לשלב הבא.
+        </p>
+
+        <ul>
+          {faqs.map(faq => (
+            <li key={faq.question}>
+              <details name="faq-accordion" className='card'>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+    </section>
+  )
+}

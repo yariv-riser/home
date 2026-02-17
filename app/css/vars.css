@@ -1,0 +1,43 @@
+@property --header-height {
+  syntax: "<length>";
+  initial-value: 115px;
+  inherits: true;
+}
+
+/* Brand Colors */
+
+@property --riser-black {
+  syntax: "<color>";
+  initial-value: #111;
+  inherits: true;
+}
+
+@property --riser-grey {
+  syntax: "<color>";
+  initial-value: #888;
+  inherits: true;
+}
+
+@property --riser-red {
+  syntax: "<color>";
+  initial-value: tomato;
+  inherits: true;
+}
+
+@property --riser-green {
+  syntax: "<color>";
+  initial-value: #00FF7F;
+  inherits: true;
+}
+
+@property --riser-purple {
+  syntax: "<color>";
+  initial-value: #6855FB;
+  inherits: true;
+}
+
+@property --riser-white {
+  syntax: "<color>";
+  initial-value: #f5f5f5;
+  inherits: true;
+}

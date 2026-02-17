@@ -1,0 +1,56 @@
+.about-section {
+  grid-area: about;
+
+  & .layout {
+    display: grid;
+    grid-template:
+      "title title" auto
+      "description description" auto
+      "image-1 image-2" 1fr
+      "image-1 image-3" 1fr
+      / 2fr 1fr;
+    gap: clamp(10px, 2vw, 30px);
+
+    & h2 {
+      grid-area: title;
+    }
+
+    & p {
+      grid-area: description;
+    }
+
+    & figure {
+      position: relative;
+      aspect-ratio: 1;
+    }
+
+    & figure:nth-of-type(1) {
+      grid-area: image-1;
+      aspect-ratio: unset;
+    }
+
+    & figure:nth-of-type(2) {
+      grid-area: image-2;
+    }
+
+    & figure:nth-of-type(3) {
+      grid-area: image-3;
+    }
+  }
+}
+
+@media (width < 768px) {
+  .about-section {
+    grid-area: about;
+
+    & .layout {
+      grid-template:
+        "title title" auto
+        "description description" auto
+        "image-1 image-1" 2fr
+        "image-2 image-3" 1fr
+        / 1fr 1fr;
+    }
+
+  }
+}
