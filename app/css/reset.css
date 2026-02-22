@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
   outline-color: var(--riser-purple);
+
+  &::placeholder {
+    color: var(--riser-grey);
+  }
 }
 
 ::selection {
@@ -43,21 +47,11 @@ body {
   margin: 0;
 }
 
+body:has(.header .navOpen) {
+  overflow: hidden;
+}
+
 main {
-  display: grid;
-  grid-template:
-    'hero' calc(100dvh - var(--header-height)) 'about' auto
-    'services' auto
-    'spotlight' auto
-    'process' auto
-    'pricing' auto
-    'faq' auto
-    'contact' auto
-    / 1fr
-  ;
-
-  padding-block-start: var(--header-height);
-
   &.wrapper-container {
     padding-block-start: var(--header-height);
   }
@@ -141,11 +135,17 @@ a,
 button,
 label,
 summary,
-input[type='checkbox'] {
-  font-family: inherit;
-  font-size: inherit;
+input[type='checkbox'],
+textarea,
+select,
+option {
+  font: inherit;
   cursor: pointer;
   list-style: none;
+}
+
+select {
+  color: var(--riser-grey);
 }
 
 ul {
@@ -163,13 +163,26 @@ button {
   border-radius: 2px;
 }
 
-input {
+input,
+textarea,
+select {
   font: inherit;
   width: 100%;
   margin: 0;
   background-color: transparent;
   border: none;
   border-bottom: solid 1px var(--riser-purple);
+}
+
+textarea,
+select {
+  padding: 5px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  border: solid 1px var(--riser-purple);
 }
 
 summary {
