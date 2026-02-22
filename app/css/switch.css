@@ -18,19 +18,20 @@
   right: 0;
   bottom: 0;
 
-  background-color: var(--riser-black);
-  border-radius: 3px;
+  background-color: var(--riser-purple);
+  border: solid 4px var(--riser-black);
+  border-radius: 30px;
   transition: .1s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  right: 8px;
-  bottom: 8px;
-  background-color: var(--riser-purple);
+  height: 19px;
+  width: 19px;
+  right: 4px;
+  bottom: 3px;
+  background-color: var(--riser-white);
   border-radius: 50%;
   transition: .1s;
 }
@@ -40,5 +41,5 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-  transform: translateX(-26px);
+  transform: translateX(-25px);
 }
