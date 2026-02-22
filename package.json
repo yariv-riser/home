@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@next/third-parties": "^16.1.6",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
@@ -21,7 +22,7 @@
     "three": "^0.182.0"
   },
   "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "16.1.1"
+    "eslint": "^4.1.1",
+    "eslint-config-next": "^0.2.4"
   }
 }

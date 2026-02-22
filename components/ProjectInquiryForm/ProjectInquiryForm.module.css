@@ -1,0 +1,54 @@
+.wrapper {
+  width: 100%;
+  max-width: 660px;
+  place-self: center;
+  padding: clamp(15px, 5vw, 30px);
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  & .header {
+    text-align: center;
+  }
+
+  & .row {
+    display: flex;
+    gap: 20px;
+  }
+
+  & .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+
+    & .input-error {
+      border-color: var(--riser-red);
+
+      &:focus {
+        border-color: var(--riser-red);
+      }
+    }
+
+    & .error {
+      font-weight: 700;
+      color: var(--riser-red);
+      font-size: 14px;
+      margin-top: 6px;
+      display: block;
+    }
+  }
+}
+
+
+
+
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
