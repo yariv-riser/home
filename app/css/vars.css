@@ -38,6 +38,6 @@
 
 @property --riser-white {
   syntax: "<color>";
-  initial-value: #f5f5f5;
+  initial-value: #fff;
   inherits: true;
 }
