@@ -1,17 +1,26 @@
 .wrapper {
   width: 100%;
-  max-width: 660px;
   place-self: center;
   padding: clamp(15px, 5vw, 30px);
+
+  &.form-wrapper {
+    max-width: 660px;
+  }
+
+  &.cal-wrapper {
+    max-width: 830px;
+    padding: 0;
+  }
 
   & form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
   }
 
   & .header {
     text-align: center;
+    margin-block-end: 30px;
   }
 
   & .row {
