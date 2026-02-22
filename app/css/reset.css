@@ -144,6 +144,13 @@ option {
   list-style: none;
 }
 
+label:has(+ input:required):after,
+label:has(+ select:required):after,
+label:has(+ textarea:required):after {
+  content: " *";
+  color: var(--riser-red);
+}
+
 select {
   color: var(--riser-grey);
 }

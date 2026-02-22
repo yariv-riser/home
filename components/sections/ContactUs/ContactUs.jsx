@@ -59,47 +59,41 @@ export default function ContactUs() {
         </p>
 
         <form className='card' onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>
-              <span>שם מלא</span>
-              <input
-                type="text"
-                name="name"
-                autoComplete="name"
-                required
-                disabled={status === 'submitting'}
-              />
-            </label>
+          <div className={`${styles['input-group']}`}>
+            <label htmlFor='name'>שם מלא</label>
+            <input
+              type="text"
+              name="name"
+              autoComplete="name"
+              required
+              disabled={status === 'submitting'}
+            />
           </div>
 
-          <div className="input-group">
-            <label>
-              <span>אימייל</span>
-              <input
-                required
-                type="email"
-                name="email"
-                autoComplete="email"
-                disabled={status === 'submitting'}
-              />
-            </label>
+          <div className={`${styles['input-group']}`}>
+            <label htmlFor='email'>אימייל</label>
+            <input
+              required
+              type="email"
+              name="email"
+              autoComplete="email"
+              disabled={status === 'submitting'}
+            />
           </div>
 
-          <div className="input-group">
-            <label>
-              <span>טלפון</span>
-              <input
-                required
-                type="tel"
-                name="phone"
-                autoComplete="tel"
-                inputMode="numeric"
-                pattern="[0-9\-\s]*"
-                minLength={10}
-                maxLength={14}
-                disabled={status === 'submitting'}
-              />
-            </label>
+          <div className={`${styles['input-group']}`}>
+            <label htmlFor="phone">טלפון</label>
+            <input
+              required
+              type="tel"
+              name="phone"
+              autoComplete="tel"
+              inputMode="numeric"
+              pattern="[0-9\-\s]*"
+              minLength={10}
+              maxLength={14}
+              disabled={status === 'submitting'}
+            />
           </div>
 
           <label className='checkbox-section'>
