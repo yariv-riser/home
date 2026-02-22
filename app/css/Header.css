@@ -104,8 +104,6 @@
       flex-direction: column;
       gap: 5px;
 
-      background-color: fuchsia;
-
       & .bar {
         width: 25px;
         height: 3px;
@@ -121,7 +119,7 @@
 
 }
 
-@media (width < 1161px) {
+@media (width < 1167px) {
   .header {
 
     overflow: visible;
@@ -138,19 +136,21 @@
         height: 100dvh;
         flex-direction: column;
         align-items: center;
-        padding: 32px 0 0;
         background-color: var(--riser-black);
 
         & ul {
-          font-family: var(--font-title);
-          font-weight: 500;
-          color: var(--riser-green);
-          letter-spacing: 10px;
-          font-size: 40px;
-          text-align: center;
-          width: 100%;
           flex-direction: column;
           gap: 2vh;
+          width: 100%;
+
+          font-size: 40px;
+          font-family: var(--font-title);
+          font-weight: 500;
+          padding-inline-end: 0;
+          text-align: center;
+          letter-spacing: 10px;
+
+          color: var(--riser-green);
         }
 
         &.navOpen {

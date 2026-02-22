@@ -10,6 +10,7 @@ import FAQ from '@/components/sections/FAQ/FAQ';
 import ContactUs from '@/components/sections/ContactUs/ContactUs';
 
 import { plans, faqs } from '@/app/data.json';
+import styles from './page.module.css';
 
 export default async function Home() {
 
@@ -69,7 +70,7 @@ export default async function Home() {
 
   return (
     <>
-      <main>
+      <main className={styles['home']}>
         <SectionTracker
           sectionName="Hero"
           elId="hero-section"

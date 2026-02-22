@@ -9,8 +9,6 @@ import { X } from 'lucide-react';
 import { sendGAEvent } from '@/utils/analytics';
 import { navLinks } from '@/app/data.json';
 
-import styles from './Header.module.css';
-
 const Header = () => {
   const { navState, handleLinkClick } = useNavigation();
 
@@ -75,31 +73,31 @@ const Header = () => {
   };
 
   return (
-    <header className={`${styles.header} ${isVisible ? '' : styles.hidden}`} role="banner">
-      <div className={`${styles.layout} wrapper`}>
+    <header className={`header ${isVisible ? '' : 'hidden'}`} role="banner">
+      <div className={`layout wrapper`}>
 
         <Link
           href="/"
           onClick={onLogoClick}
-          className={styles.logoLink}
+          className='logoLink'
           aria-label="Go to Homepage"
         >
           <Image src={logoUrl} alt="רייזר" width={120} height={40} priority />
         </Link>
 
-        <nav className={`${isMenuOpen ? styles.navOpen : ''}`} aria-label="Main Navigation">
+        <nav className={`${isMenuOpen ? 'navOpen' : ''}`} aria-label="Main Navigation">
           {isMenuOpen && (
-            <button type="button" className={styles['close-btn']} onClick={() => setIsMenuOpen(false)}>
+            <button type="button" className='close-btn' onClick={() => setIsMenuOpen(false)}>
               <X size={60} strokeWidth={3} />
             </button>
           )}
 
-          <ul className={styles.navList}>
+          <ul className='navList'>
             {navLinks.map(link => (
-              <li key={link.name} className={styles.navItem}>
+              <li key={link.name} className='navItem'>
                 <Link
                   href={link.href}
-                  className={styles.navLink}
+                  className='navLink'
                   onClick={(e) => onNavClick(e, link.href)}
                 >
                   {link.name}
@@ -110,17 +108,17 @@ const Header = () => {
 
           <Link
             href='/#contact-section'
-            className={`btn cta ${styles['header-cta']}`}
+            className={`btn cta header-cta`}
             onClick={(e) => onNavClick(e, '/#contact-section')}
           >
             בואו נדבר
           </Link>
         </nav>
 
-        <button className={styles.mobileToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span className={isMenuOpen ? styles.barOpen : styles.bar}></span>
-          <span className={isMenuOpen ? styles.barOpen : styles.bar}></span>
-          <span className={isMenuOpen ? styles.barOpen : styles.bar}></span>
+        <button className='mobileToggle' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
+          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
+          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
         </button>
 
       </div>

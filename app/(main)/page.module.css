@@ -1,0 +1,15 @@
+.home {
+  display: grid;
+  grid-template:
+    'hero' calc(100dvh - var(--header-height)) 'about' auto
+    'services' auto
+    'spotlight' auto
+    'process' auto
+    'pricing' auto
+    'faq' auto
+    'contact' auto
+    / 1fr
+  ;
+
+  padding-block-start: var(--header-height);
+}
