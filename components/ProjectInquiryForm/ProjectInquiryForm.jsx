@@ -103,17 +103,17 @@ const ProjectInquiryForm = () => {
 
   if (isSuccess) {
 
-    if (formData.budget === lowestBudget) {
-      return (
-        <section className={`card ${styles['wrapper']}`}>
-          <h3>ההודעה התקבלה</h3>
-          <p>
-            תודה שפנית ל-Riser. קיבלנו את הפרטים שלך ונחזור אליך במייל
-            בתוך 24 שעות עם מידע נוסף והצעות רלוונטיות לתקציב שלך.
-          </p>
-        </section>
-      );
-    }
+    // if (formData.budget === lowestBudget) {
+    //   return (
+    //     <section className={`card ${styles['wrapper']}`}>
+    //       <h3>ההודעה התקבלה</h3>
+    //       <p>
+    //         תודה שפנית ל-Riser. קיבלנו את הפרטים שלך ונחזור אליך במייל
+    //         בתוך 24 שעות עם מידע נוסף והצעות רלוונטיות לתקציב שלך.
+    //       </p>
+    //     </section>
+    //   );
+    // }
 
     return (
       <section className={`${styles['wrapper']}`}>
