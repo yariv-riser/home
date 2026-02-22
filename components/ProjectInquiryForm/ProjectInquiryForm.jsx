@@ -67,10 +67,6 @@ const ProjectInquiryForm = () => {
     if (!formData.budget) newErrors.budget = 'נא לבחור מסגרת תקציב';
     if (!formData.source) newErrors.source = 'נשמח לדעת איך הגעתם אלינו';
 
-    if (!formData.message.trim()) {
-      newErrors.message = 'ספרו לנו מעט על הפרויקט כדי שנוכל להתקדם';
-    }
-
     return newErrors;
   };
 
@@ -90,9 +86,6 @@ const ProjectInquiryForm = () => {
     setIsSubmitting(true);
 
     try {
-      // NOTE: Here you should send the lead to your Database/CRM (Supabase, Airtable, etc.)
-      // console.log('Lead Captured:', formData);
-
       setIsSuccess(true);
     } catch (error) {
       console.error("Submission error", error);
@@ -102,26 +95,13 @@ const ProjectInquiryForm = () => {
   };
 
   if (isSuccess) {
-
-    // if (formData.budget === lowestBudget) {
-    //   return (
-    //     <section className={`card ${styles['wrapper']}`}>
-    //       <h3>ההודעה התקבלה</h3>
-    //       <p>
-    //         תודה שפנית ל-Riser. קיבלנו את הפרטים שלך ונחזור אליך במייל
-    //         בתוך 24 שעות עם מידע נוסף והצעות רלוונטיות לתקציב שלך.
-    //       </p>
-    //     </section>
-    //   );
-    // }
-
     return (
-      <section className={`${styles['wrapper']}`}>
+      <section className={`${styles['wrapper']} ${styles['cal-wrapper']}`}>
         <Cal
           namespace="intro"
           calLink="riser/intro"
           calOrigin="https://cal.eu"
-          style={{ width: "100%", height: "100%", overflow: "scroll" }}
+          style={{ width: "100%", height: "100%", overflow: "hidden" }}
           config={{
             name: formData.name,
             email: formData.email,
@@ -136,7 +116,7 @@ const ProjectInquiryForm = () => {
   }
 
   return (
-    <section className={`card ${styles['wrapper']}`}>
+    <section className={`card ${styles['wrapper']} ${styles['form-wrapper']}`}>
       <header className={styles['header']}>
         <h2>בואו נבנה משהו!</h2>
         <p>ספרו לנו על החזון שלכם כדי שנוכל להתקדם לפגישת ייעוץ.</p>
@@ -149,6 +129,7 @@ const ProjectInquiryForm = () => {
           <div className={styles['form-group']}>
             <label htmlFor="name">שם מלא</label>
             <input
+              required
               id="name"
               name="name"
               type="text"
@@ -166,6 +147,7 @@ const ProjectInquiryForm = () => {
           <div className={styles['form-group']}>
             <label htmlFor="email">אימייל</label>
             <input
+              required
               id="email"
               name="email"
               type="email"
@@ -187,6 +169,7 @@ const ProjectInquiryForm = () => {
           <div className={styles['form-group']}>
             <label htmlFor="service">אני מתעניין ב...</label>
             <select
+              required
               id="service"
               name="service"
               className={`${errors.service ? styles['input-error'] : ''}`}
@@ -210,6 +193,7 @@ const ProjectInquiryForm = () => {
           <div className={styles['form-group']}>
             <label htmlFor="budget">תקציב משוער</label>
             <select
+              required
               id="budget"
               name="budget"
               className={`${errors.budget ? styles['input-error'] : ''}`}
@@ -234,6 +218,7 @@ const ProjectInquiryForm = () => {
         <div className={styles['form-group']}>
           <label htmlFor="source">איך שמעתם עלינו?</label>
           <select
+            required
             id="source"
             name="source"
             className={`${errors.source ? styles['input-error'] : ''}`}
