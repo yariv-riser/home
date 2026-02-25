@@ -40,6 +40,10 @@ footer.footer[role="contentinfo"] {
         direction: ltr;
         text-align: right;
       }
+
+      & .whatsapp {
+        display: inline;
+      }
     }
 
     & .sections-nav {

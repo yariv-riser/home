@@ -1,0 +1,25 @@
+.whatsappLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.whatsappLink:hover,
+.whatsappLink:focus {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.placeholder {
+  color: #888;
+  font-size: 0.9em;
+}
