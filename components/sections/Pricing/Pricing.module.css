@@ -85,6 +85,10 @@
           gap: 1ch;
 
           font-size: clamp(14px, 3vw, 16px);
+
+          & svg {
+            flex-shrink: 0;
+          }
         }
       }
 
