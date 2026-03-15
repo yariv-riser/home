@@ -27,7 +27,8 @@ export const metadata = {
   description: "חוויות אינטראקטיביות מרגשות",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
   return (
     <html lang="he" dir="rtl" className={`${handjet.variable} ${googleSans.variable}`}>
       <head>

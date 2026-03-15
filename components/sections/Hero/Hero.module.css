@@ -4,18 +4,85 @@
   & .layout {
     display: grid;
     grid-template:
-      "logo" 1fr
-      "title" auto
+      "title-grid" 1fr
       "description" auto
       "cta" auto
       / 1fr;
     gap: clamp(30px, 2vw, 50px);
 
-    max-width: 630px;
+    /* max-width: 630px; */
     text-align: center;
 
-    & .hero-logo {
-      grid-area: logo;
+    & .title-grid {
+      grid-area: title-grid;
+
+      display: grid;
+      grid-template:
+        repeat(3, auto) / repeat(5, 1fr);
+
+      text-shadow: 0 0 5px var(--riser-grey);
+      font-size: clamp(50px, 8vw, 230px);
+      font-weight: 700;
+      place-items: center;
+
+      & li {
+        line-height: 1.2;
+        letter-spacing: 3px;
+
+        &.logo-container {
+          position: relative;
+          height: 100%;
+          width: 100%;
+        }
+
+        &.a {
+          grid-column: span 2;
+        }
+
+        &.b {
+          grid-column: span 2;
+        }
+
+        &.c {
+          grid-column: span 2;
+        }
+
+        &.d {
+          grid-column: span 2;
+        }
+
+        &.e {
+          grid-column: span 2;
+        }
+
+        &.f {
+          grid-column: span 2;
+        }
+      }
+
+      & img {
+        filter: drop-shadow(0 0 5px #c3c3c3);
+        height: auto;
+        width: clamp(50px, 15vw, 230px);
+
+        &.sign {
+          height: 180px;
+          width: auto;
+          place-self: end;
+        }
+
+        &.tablet {
+          place-self: start;
+          height: clamp(50px, 11vw, 250px);
+          width: auto;
+        }
+
+        &.plant {
+          place-self: start;
+          height: clamp(50px, 11vw, 250px);
+          width: auto;
+        }
+      }
     }
 
     & h1 {

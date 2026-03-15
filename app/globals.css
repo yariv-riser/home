@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
 
-  background-color: var(--riser-green);
+  /* background-color: var(--riser-green); */
   padding: clamp(10px, 5vw, 50px) clamp(20px, 5vw, 50px);
 
   &:nth-child(2n) {

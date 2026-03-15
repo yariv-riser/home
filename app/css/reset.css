@@ -43,7 +43,7 @@ body {
   text-wrap: pretty;
   line-height: 1.5;
   color: var(--riser-black);
-  background-color: var(--riser-green);
+  background-color: #f5f5f5;
   margin: 0;
 }
 
