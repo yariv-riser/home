@@ -103,9 +103,9 @@ function Model() {
     <primitive
       object={clonedScene}
       ref={meshRef}
-      scale={0.13}
+      scale={0.145}
       position={[0, -1, 0]}
-      rotation={[1.7, 0, 2.3]}
+      rotation={[1.4, 0, 1.1]}
     />
   )
 }
@@ -114,7 +114,7 @@ export default function Tablet3D() {
   const { width } = useDebouncedResize(200)
 
   return (
-    <div className={styles['canvas-container']}>
+    <div className={`${styles['canvas-container']}`}>
       <Canvas
         key={width}
         camera={{ position: [-15, 0, 0], fov: 50 }}
@@ -124,7 +124,7 @@ export default function Tablet3D() {
         <Float floatingRange={[-0.3, 0.3]} speed={7} rotationIntensity={0} floatIntensity={1}>
           <Model />
         </Float>
-        <OrbitControls makeDefault />
+        {/* <OrbitControls makeDefault /> */}
       </Canvas>
     </div>
   )

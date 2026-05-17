@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 
 import styles from './Pricing.module.css'
+import PricingPlan from '@/components/PricingPlan/PricingPlan';
 
-export default function Plans({ plans }) {
+export default function Pricing({ plans }) {
 
   const [mode, setMode] = useState('projects');
 
@@ -18,16 +19,15 @@ export default function Plans({ plans }) {
       <div className={`${styles['layout']} wrapper`}>
 
         <h2>
-          ההשקעה הטובה ביותר שתעשו בעסק שלכם לשנים רבות קדימה
+          החבילות
         </h2>
 
         <p>
-          לבנות נוכחות דיגיטלית זה דבר מאתגר. בדיוק בגלל זה בנינו עבורכם מסלולים שקופים ומודולריים, שיתאימו בדיוק לקצב הצמיחה שלכם. מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
-          ביחרו פרוייקט או בנק שעות:
+          לבנות נוכחות דיגיטלית זה דבר מאתגר. בדיוק בגלל זה בנינו עבורכם מסלולים שקופים ומודולריים, שיתאימו בדיוק לקצב הצמיחה שלכם.<br />מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
         </p>
 
-        <div className={`${styles['plan-switch']} card`}>
-          <label htmlFor="planType">פרוייקט חדש</label>
+        <div className={`${styles['plan-switch']}`}>
+          <label htmlFor="planType">חיוב לפי סוג פרוייקט</label>
           <label className='switch'>
             <input
               id="planType"
@@ -37,39 +37,27 @@ export default function Plans({ plans }) {
             />
             <span className="slider"></span>
           </label>
-          <label htmlFor="planType">בנק שעות</label>
+          <label htmlFor="planType">חיוב לפי שעה</label>
         </div>
 
-        {plans[mode].map(plan => (
-          <article className={`${styles['plan']} card hover-float`} key={plan.id}>
-
-            <h3 id={`plan-${plan.id}`}>{plan.name}</h3>
-
-            <h4>{plan.description}</h4>
-
-            {plan.features &&
-              <ul aria-label={`${plan.name} פרטי חבילת`}>
-                {plan.features.map((feature, i) => (
-                  <li key={i}><Check />{feature}</li>
-                ))}
-              </ul>
-            }
-
-            <div className={styles['price']}>
-              {mode === 'projects' ? <span>החל מ-</span> : ''}
-              <span>₪</span>
-              <span>{plan.price}</span>
-            </div>
-
-            <a
-              className='btn cta'
-              aria-describedby={`חבילת-${plan.id}`}
-              href='#contact-section'
-            >
-              {plan.cta}
-            </a>
-
-          </article>
+        {plans[mode].map(({ id,
+          name,
+          description,
+          featuresTitle,
+          features,
+          price,
+          cta }) => (
+          <PricingPlan
+            key={id}
+            id={id}
+            mode={mode}
+            name={name}
+            description={description}
+            featuresTitle={featuresTitle}
+            features={features}
+            price={price}
+            cta={cta}
+          />
         ))}
 
       </div>

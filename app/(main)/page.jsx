@@ -92,12 +92,12 @@ export default async function Home() {
           <Services />
         </SectionTracker> */}
 
-        <SectionTracker
+        {/* <SectionTracker
           sectionName="Spotlight"
           elId="spotlight-section"
         >
           <Spotlight />
-        </SectionTracker>
+        </SectionTracker> */}
 
         <SectionTracker
           sectionName="Process"

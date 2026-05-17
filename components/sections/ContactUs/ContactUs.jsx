@@ -58,7 +58,7 @@ export default function ContactUs() {
           לקחת את העסק שלכם לשלב הבא בדיגיטל זה רגע משמעותי ומרגש. אנחנו כאן כדי להפוך את הדרך הזו לחלקה ובטוחה ככל הניתן – השאירו פרטים ונצא לדרך.
         </p>
 
-        <form className='card' onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className={`${styles['input-group']}`}>
             <label htmlFor='name'>שם מלא</label>
             <input

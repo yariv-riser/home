@@ -1,7 +1,8 @@
 .home {
   display: grid;
   grid-template:
-    'hero' calc(100dvh - var(--header-height)) 'about' auto
+    'hero' 100dvh
+    'about' 100dvh
     'services' auto
     'spotlight' auto
     'process' auto
@@ -10,6 +11,4 @@
     'contact' auto
     / 1fr
   ;
-
-  padding-block-start: var(--header-height);
 }

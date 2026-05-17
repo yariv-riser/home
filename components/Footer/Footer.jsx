@@ -8,6 +8,7 @@ import Whatsapp from '../Whatsapp/Whatsapp';
 import Phone from '../Phone/Phone';
 import Email from '../Email/Email';
 
+import Ball3D from '@/components/Ball3D/Ball3D';
 import { navLinks } from '@/app/data.json';
 import styles from './Footer.module.css';
 
@@ -68,6 +69,8 @@ const Footer = () => {
           </ul>
         </nav>
       </div>
+
+      <Ball3D />
     </footer>
   );
 };

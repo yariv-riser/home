@@ -1,0 +1,176 @@
+.plan {
+  display: grid;
+  grid-template:
+    "title" auto
+    "description" auto
+    "price" auto
+    "divider" auto
+    "features" 1fr
+    "cta" auto
+    / 1fr;
+  gap: clamp(16px, 1vw, 15px);
+  place-self: stretch;
+
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: clamp(15px, 5vw, 25px);
+  background-color: var(--riser-light-grey);
+  border: solid 1px color-mix(in srgb, var(--riser-grey) 10%, transparent);
+  border-radius: 40px;
+
+  text-align: right;
+
+  &:nth-of-type(1) {
+    grid-area: plan-1;
+  }
+
+  &:nth-of-type(2) {
+    grid-area: plan-2;
+
+    position: relative;
+    grid-template:
+      "title" auto
+      "description" auto
+      "price" auto
+      "divider" auto
+      "features-title" auto
+      "features" 1fr
+      "cta" auto
+      / 1fr;
+
+    border: none;
+    background-image:
+      radial-gradient(at 20% 0%, hsla(246, 100%, 90%, 1) 0px, transparent 30%),
+      radial-gradient(at 0% 5%, hsla(149, 100%, 70%, 1) 0px, transparent 30%);
+    box-shadow: 0 0 25px 15px color-mix(in srgb, var(--riser-grey) 17%, transparent);
+    transition: all .2s;
+
+    &.hours {
+      grid-template:
+        "title" auto
+        "description" auto
+        "price" auto
+        "divider" auto
+        "features" 1fr
+        "cta" auto
+        / 1fr;
+    }
+
+    &:before {
+      content: "פופולארי";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      background-color: #222;
+      border: solid 3px #fff;
+      border-radius: 40px;
+      padding: 5px 20px;
+      box-shadow: -2px 5px 10px rgba(0, 0, 0, .2),
+        inset 0 0 8px #999;
+
+      animation: float 3s ease-in-out infinite normal forwards;
+    }
+
+  }
+
+  &:nth-of-type(3) {
+    grid-area: plan-3;
+  }
+
+  & h3 {
+    grid-area: title;
+  }
+
+  & hr {
+    grid-area: divider;
+
+    background-color: color-mix(in srgb, var(--riser-grey) 10%, transparent);
+    ;
+  }
+
+  & h4 {
+    grid-area: description;
+
+    font: inherit;
+    color: var(--riser-grey);
+    margin-block-end: 20px;
+    letter-spacing: 0;
+  }
+
+  & small {
+    grid-area: features-title;
+
+    font-size: clamp(14px, 3vw, 18px);
+  }
+
+  & ul {
+    grid-area: features;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1ch;
+
+    & li {
+      display: flex;
+      gap: 1ch;
+
+      font-size: clamp(14px, 3vw, 18px);
+
+      & svg {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  & .price {
+    grid-area: price;
+
+    font-size: clamp(25px, 10vw, 35px);
+  }
+
+  & a {
+    grid-area: cta;
+
+    place-self: end;
+    width: 100%;
+    margin-block-start: 40px;
+  }
+}
+
+@media (width < 970px) {
+  .plan {
+    grid-template:
+      "title features ." auto
+      "subtitle features price" 1fr
+      "cta cta cta" auto
+      / .5fr 1fr auto;
+
+    aspect-ratio: unset;
+
+    & ul {
+      place-self: center;
+    }
+
+    & button {
+      margin-block-start: 1ch;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(5deg) translate(20%, -70%);
+  }
+
+  50% {
+    transform: rotate(5deg) translate(20%, -90%);
+  }
+
+  100% {
+    transform: rotate(5deg) translate(20%, -70%);
+  }
+}

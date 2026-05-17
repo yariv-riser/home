@@ -1,6 +1,5 @@
 main.page {
-  padding-block-start: 40px;
-  margin-block-start: var(--header-height);
+  padding-block-start: var(--header-height);
 
   & .layout {
     display: flex;
@@ -8,6 +7,7 @@ main.page {
     gap: clamp(30px, 7vw, 40px);
 
     max-width: 850px;
+    margin-block-start: clamp(15px, 7vw, 30px);
     padding: clamp(15px, 7vw, 50px) clamp(10px, 5vw, 50px);
 
     & h1 {

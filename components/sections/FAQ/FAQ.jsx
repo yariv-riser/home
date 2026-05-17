@@ -17,7 +17,7 @@ export default function FAQ({ faqs }) {
         <ul>
           {faqs.map(faq => (
             <li key={faq.question}>
-              <details name="faq-accordion" className='card'>
+              <details name="faq-accordion">
                 <summary>{faq.question}</summary>
                 <p>{faq.answer}</p>
               </details>

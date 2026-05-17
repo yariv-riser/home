@@ -64,8 +64,8 @@ function Model() {
     <primitive
       object={clonedScene}
       ref={meshRef}
-      scale={0.03}
-      position={[0, -1, -1]}
+      scale={0.05}
+      position={[0, -4, -1]}
       rotation={[1, -1, 0.8]}
     />
   )

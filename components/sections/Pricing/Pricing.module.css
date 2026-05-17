@@ -12,6 +12,7 @@
     gap: clamp(20px, 2vw, 30px);
 
     min-height: 900px;
+    text-align: center;
 
     & h2 {
       grid-area: title;
@@ -29,84 +30,11 @@
       align-items: center;
       gap: 10px;
 
-      font-weight: 600;
       padding: 10px 15px;
+      margin-block-end: 30px;
     }
 
-    & .plan {
-      display: grid;
-      grid-template:
-        "title" auto
-        "subtitle" auto
-        "features" 1fr
-        "price" auto
-        "cta" auto
-        / 1fr;
-      gap: clamp(16px, 1vw, 15px);
-      place-self: stretch;
 
-      position: relative;
-      padding: clamp(15px, 5vw, 30px);
-      min-width: 0;
-      aspect-ratio: 1;
-
-      &:nth-of-type(1) {
-        grid-area: plan-1;
-      }
-
-      &:nth-of-type(2) {
-        grid-area: plan-2;
-      }
-
-      &:nth-of-type(3) {
-        grid-area: plan-3;
-      }
-
-      & h3 {
-        grid-area: title;
-      }
-
-      & h4 {
-        grid-area: subtitle;
-
-        font: inherit;
-        font-weight: 500;
-      }
-
-      & ul {
-        grid-area: features;
-
-        display: flex;
-        flex-direction: column;
-        gap: 1ch;
-
-        & li {
-          display: flex;
-          gap: 1ch;
-
-          font-size: clamp(14px, 3vw, 16px);
-
-          & svg {
-            flex-shrink: 0;
-          }
-        }
-      }
-
-      & .price {
-        grid-area: price;
-
-        place-self: end;
-
-        font-weight: 500;
-      }
-
-      & a {
-        grid-area: cta;
-
-        place-self: end;
-        width: 100%;
-      }
-    }
 
   }
 }
@@ -122,24 +50,6 @@
         "plan-2" auto
         "plan-3" auto
         / 1fr;
-
-      & .plan {
-        grid-template:
-          "title features ." auto
-          "subtitle features price" 1fr
-          "cta cta cta" auto
-          / .5fr 1fr auto;
-
-        aspect-ratio: unset;
-
-        & ul {
-          place-self: center;
-        }
-
-        & button {
-          margin-block-start: 1ch;
-        }
-      }
     }
   }
 }

@@ -1,31 +1,70 @@
 .step {
-  display: grid;
-  grid-template:
-    "icon" 1fr
-    "title" auto
-    "description" auto
-    / 1fr;
-  gap: clamp(10px, 1vw, 15px);
-
   position: relative;
-  padding: clamp(15px, 5vw, 30px);
   min-width: 0;
-  aspect-ratio: 1;
+  background-color: var(--riser-light-grey);
+  border: solid 1px color-mix(in srgb, var(--riser-grey) 10%, transparent);
+  border-radius: 30px;
+  padding: clamp(15px, 5vw, 30px);
+  padding-top: 95px;
+
+  & img {
+    position: absolute;
+  }
 
   &:nth-of-type(1) {
     grid-area: step-1;
+
+    & img {
+      top: -50px;
+      left: -10px;
+    }
   }
 
   &:nth-of-type(2) {
     grid-area: step-2;
+
+    & img {
+      top: -40px;
+      left: 0;
+    }
   }
 
   &:nth-of-type(3) {
     grid-area: step-3;
+
+    & img {
+      top: -40px;
+      left: 0;
+    }
   }
 
-  & p span {
-    font-weight: 700;
+  & h3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-family: var(--font-base);
+    font-size: 20px;
+    letter-spacing: normal;
+
+    background-color: var(--riser-green);
+    padding: 10px 25px;
+    border-radius: 30px;
+
+    transform: translate(-30px, -50%);
+  }
+
+  & p {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    color: #666;
+
+    & span {
+      font-size: clamp(16px, 10vw, 25px);
+      color: var(--riser-black);
+    }
   }
 }
 

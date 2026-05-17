@@ -4,18 +4,22 @@
   & .layout {
     display: grid;
     grid-template:
-      "title title title" auto
-      "description description description" auto
+      "title description description" auto
       "step-1 step-2 step-3" auto
       / 1fr 1fr 1fr;
-    gap: clamp(10px, 2vw, 30px);
+    column-gap: clamp(10px, 2vw, 30px);
+    row-gap: 80px;
 
     & h2 {
       grid-area: title;
+
+      font-size: clamp(60px, 10vw, 80px);
     }
 
     & p {
       grid-area: description;
+
+      font-size: clamp(16px, 4.5vw, 20px);
     }
   }
 }

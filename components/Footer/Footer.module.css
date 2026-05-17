@@ -1,17 +1,23 @@
 footer.footer[role="contentinfo"] {
   grid-area: footer;
-
+  position: relative;
   min-height: 100dvh;
 
   font-family: var(--font-title);
   letter-spacing: 2px;
 
-  color: var(--riser-white);
+  color: #fff;
   background-color: var(--riser-black);
 
   & a {
     border-bottom: none;
+
+    &:hover {
+      color: var(--riser-green)
+    }
   }
+
+  overflow: hidden;
 
   & .layout {
     display: grid;
@@ -22,6 +28,8 @@ footer.footer[role="contentinfo"] {
       /auto auto auto auto auto;
 
     align-self: stretch;
+
+    z-index: 1;
 
     & .contact-info,
     & .sections-nav,

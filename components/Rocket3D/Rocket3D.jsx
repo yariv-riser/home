@@ -46,9 +46,9 @@ function Model({ onLoaded }) {
     <primitive
       object={clonedScene}
       ref={meshRef}
-      scale={0.00035}
+      scale={0.00033}
       position={[1, -1, 0]}
-      rotation={[.1, -.5, .87]}
+      rotation={[1.3, -1, 1.3]}
     />
   )
 }

@@ -31,16 +31,20 @@
       gap: clamp(15px, 2vw, 20px);
 
       & details {
+        background-color: white;
+        border: solid 1px rgba(0, 0, 0, .2);
+        border-radius: 40px;
+
         & summary {
           font-size: clamp(16px, 2.5vw, 20px);
           font-weight: 500;
-          padding: clamp(10px, 2vw, 15px);
+          padding: clamp(10px, 2vw, 15px) clamp(10px, 2vw, 30px);
         }
 
         & p {
           font-size: clamp(14px, 2.5vw, 18px);
-          padding-block-end: clamp(10px, 2vw, 15px);
-          padding-inline: clamp(10px, 2vw, 15px);
+          padding-block-end: clamp(10px, 2vw, 25px);
+          padding-inline: clamp(10px, 2vw, 30px);
         }
       }
 

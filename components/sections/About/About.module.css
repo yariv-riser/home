@@ -1,40 +1,44 @@
 .about-section {
   grid-area: about;
 
+  background-image: url('../../../assets/about-section-img-edit.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  clip-path: inset(0 round 40px);
+  box-shadow: inset 0 0 50px var(--riser-grey);
+  margin: 70px;
+
   & .layout {
     display: grid;
     grid-template:
-      "title title" auto
-      "description description" auto
-      "image-1 image-2" 1fr
-      "image-1 image-3" 1fr
-      / 2fr 1fr;
-    gap: clamp(10px, 2vw, 30px);
+      ". title" auto
+      ". description" auto
+      / .9fr 1.1fr;
+    gap: clamp(10px, 2vw, 40px);
+
 
     & h2 {
       grid-area: title;
+
+      color: var(--riser-purple);
+      text-align: left;
+      font-size: clamp(60px, 7vw, 110px);
+      line-height: .9;
     }
 
     & p {
       grid-area: description;
+
+      text-align: justify;
     }
 
     & figure {
+      grid-area: image;
+
       position: relative;
       aspect-ratio: 1;
-    }
-
-    & figure:nth-of-type(1) {
-      grid-area: image-1;
-      aspect-ratio: unset;
-    }
-
-    & figure:nth-of-type(2) {
-      grid-area: image-2;
-    }
-
-    & figure:nth-of-type(3) {
-      grid-area: image-3;
     }
   }
 }
