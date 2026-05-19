@@ -54,13 +54,13 @@
       position: relative;
 
       max-width: clamp(70%, 50vw, 50%);
-      padding: clamp(15px, 5vw, 30px);
+      padding: clamp(15px, 7vw, 45px);
 
-      background-color: var(--riser-light-grey);
+
       border-radius: 40px;
+      z-index: 0;
 
-      &:before,
-      &:after {
+      &:before {
         content: "";
         position: absolute;
         top: 0;
@@ -72,16 +72,27 @@
             var(--riser-purple),
             var(--riser-green),
             var(--riser-purple));
-        background-size: 400%;
         z-index: -1;
+
+        background-size: 400%;
         animation: glow 10s linear infinite forwards;
-        width: 100%;
-        border-radius: inherit;
       }
 
-      &:after {
+      &:before {
         filter: blur(25px);
         transform: translate3d(0, 0, 0);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: var(--riser-light-grey);
+        z-index: -1;
+        border-radius: inherit;
       }
 
       & .input-group {
