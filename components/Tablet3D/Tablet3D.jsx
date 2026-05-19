@@ -124,7 +124,6 @@ export default function Tablet3D() {
         <Float floatingRange={[-0.3, 0.3]} speed={7} rotationIntensity={0} floatIntensity={1}>
           <Model />
         </Float>
-        {/* <OrbitControls makeDefault /> */}
       </Canvas>
     </div>
   )
