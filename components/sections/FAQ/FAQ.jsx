@@ -1,4 +1,6 @@
 
+import QuestionMark3D from '@/components/QuestionMark3D/QuestionMark3D';
+
 import styles from './FAQ.module.css';
 
 export default function FAQ({ faqs }) {
@@ -25,7 +27,12 @@ export default function FAQ({ faqs }) {
           ))}
         </ul>
 
+        <div className={`${styles['question-mark']}`}>
+          <QuestionMark3D />
+        </div>
       </div>
+
+
     </section>
   )
 }

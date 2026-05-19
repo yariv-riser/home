@@ -1,0 +1,11 @@
+.canvas-container {
+  height: 45vw;
+  width: 45vw;
+  background-color: transparent;
+
+  &:focus-visible {
+    outline: 2px solid #00FF7F;
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+}
