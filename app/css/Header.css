@@ -5,15 +5,18 @@
   right: 0;
 
   color: var(--riser-black);
+  border-bottom: solid 1px color-mix(in srgb, var(--riser-grey) 10%, transparent);
   padding: 20px;
-  overflow: hidden;
 
   transform: translateY(-150px);
   transition: all .7s ease;
   will-change: transform;
   animation: fadeIn .7s ease forwards;
-  z-index: 2;
+
   backdrop-filter: blur(9px);
+
+  overflow: hidden;
+  z-index: 2;
 
   & .layout {
     display: grid;
