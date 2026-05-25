@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, Float, Environment, OrbitControls } from '@react-three/drei'
+import { useGLTF, Float, Environment } from '@react-three/drei'
 
 import styles from './Tablet3D.module.css';
 
@@ -32,42 +32,45 @@ function Model() {
   const { scene } = useGLTF('/tablet.glb');
   const meshRef = useRef();
 
+  // Track mouse coordinates independent of the canvas size
+  const globalMouse = useRef({ x: 0, y: 0 });
+
   const clonedScene = useMemo(() => scene.clone(), [scene]);
 
-  // 1. Define a dictionary of materials
+  // Define a dictionary of materials
   const materials = useMemo(() => {
     return {
       casing: new THREE.MeshStandardMaterial({
-        color: '#e6e3d5',
-        metalness: 0.1,        // Low metalness for glass.
-        roughness: 0.05,       // 0 = perfectly smooth glass. Increase for frosted glass.
-        ior: 1.5,              // Index of refraction. 1.5 is standard for glass.
-        thickness: 0.5,        // Volume thickness for light refraction.
-        envMapIntensity: 1.5,  // Boosts the reflections from the <Environment />.
+        color: '#f5f5f5',      // Riser light grey
+        metalness: 0.1,
+        roughness: 0.05,
+        ior: 1.5,
+        thickness: 0.5,
+        envMapIntensity: 1.5,
       }),
       screen: new THREE.MeshPhysicalMaterial({
-        color: '#6855FB',
-        metalness: 0.1,        // Low metalness for glass.
-        roughness: 0.05,       // 0 = perfectly smooth glass. Increase for frosted glass.
-        ior: 1.5,              // Index of refraction. 1.5 is standard for glass.
-        thickness: 0.5,        // Volume thickness for light refraction.
-        envMapIntensity: 1.5,  // Boosts the reflections from the <Environment />.
+        color: '#6855FB',      // Riser purple
+        metalness: 0.1,
+        roughness: 0.05,
+        ior: 1.5,
+        thickness: 0.5,
+        envMapIntensity: 1.5,
       }),
       button: new THREE.MeshStandardMaterial({
-        color: '#00FF7F',
-        metalness: 0.1,        // Low metalness for glass.
-        roughness: 0.05,       // 0 = perfectly smooth glass. Increase for frosted glass.
-        ior: 1.5,              // Index of refraction. 1.5 is standard for glass.
-        thickness: 0.5,        // Volume thickness for light refraction.
-        envMapIntensity: 1.5,  // Boosts the reflections from the <Environment />.
+        color: '#00FF7F',      // Riser neon green
+        metalness: 0.1,
+        roughness: 0.05,
+        ior: 1.5,
+        thickness: 0.5,
+        envMapIntensity: 1.5,
       }),
       accent: new THREE.MeshStandardMaterial({
-        color: '#6855FB',
-        metalness: 0.1,        // Low metalness for glass.
-        roughness: 0.05,       // 0 = perfectly smooth glass. Increase for frosted glass.
-        ior: 1.5,              // Index of refraction. 1.5 is standard for glass.
-        thickness: 0.5,        // Volume thickness for light refraction.
-        envMapIntensity: 1.5,  // Boosts the reflections from the <Environment />.
+        color: '#111111',      // Riser dark 
+        metalness: 0.1,
+        roughness: 0.05,
+        ior: 1.5,
+        thickness: 0.5,
+        envMapIntensity: 1.5,
       })
     };
   }, []);
@@ -82,31 +85,46 @@ function Model() {
           child.material = materials.screen;
         }
         else if (child.name.includes('Button')) {
-          // Using .includes() is handy if you have multiple buttons (e.g., 'Power_Button', 'Volume_Button')
           child.material = materials.button;
         }
         else {
-          // A fallback material for any other parts we didn't explicitly name
           child.material = materials.accent;
         }
       }
     });
   }, [clonedScene, materials]);
 
+  // Normalize global pointer movement from -1 to 1 across the whole window
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      globalMouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      globalMouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   useFrame((state, delta) => {
     if (meshRef.current) {
-      // meshRef.current.rotation.z += delta * 0.5;
+      const targetX = globalMouse.current.x;
+      const targetY = globalMouse.current.y;
+
+      // Smoothly interpolate relative to the group's baseline rotation
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX * .5, delta * 1);
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -targetY * .5, delta * 1);
     }
   })
 
   return (
-    <primitive
-      object={clonedScene}
-      ref={meshRef}
-      scale={0.145}
-      position={[0, -1, 0]}
-      rotation={[1.4, 0, 1.1]}
-    />
+    // The group holds the baseline position and slanted rotation
+    <group position={[0, -1, 0]} rotation={[1.4, 0, 1.1]}>
+      <primitive
+        object={clonedScene}
+        ref={meshRef}
+        scale={0.145}
+      />
+    </group>
   )
 }
 
@@ -114,7 +132,11 @@ export default function Tablet3D() {
   const { width } = useDebouncedResize(200)
 
   return (
-    <div className={`${styles['canvas-container']}`}>
+    <div
+      className={styles['canvas-container']}
+      role="region"
+      aria-label="Interactive 3D Tablet"
+    >
       <Canvas
         key={width}
         camera={{ position: [-15, 0, 0], fov: 50 }}

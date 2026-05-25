@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, Float, Environment, OrbitControls } from '@react-three/drei'
+import { useGLTF, Float, Environment } from '@react-three/drei'
 
 import styles from './Bulb3D.module.css';
 
@@ -32,19 +32,21 @@ function Model() {
   const { scene } = useGLTF('/bulb.glb');
   const meshRef = useRef();
 
+  // Track mouse coordinates independent of the canvas size
+  const globalMouse = useRef({ x: 0, y: 0 });
+
   const clonedScene = useMemo(() => scene.clone(), [scene]);
 
   const debugMaterial = useMemo(() => {
     return new THREE.MeshStandardMaterial({
-      color: '#00FF7F',
-      metalness: 0.1,        // Low metalness for glass.
-      roughness: 0.05,       // 0 = perfectly smooth glass. Increase for frosted glass.
-      ior: 1.5,              // Index of refraction. 1.5 is standard for glass.
-      thickness: 0.5,        // Volume thickness for light refraction.
-      envMapIntensity: 1.5,  // Boosts the reflections from the <Environment />.
+      color: '#00FF7F',      // Riser neon green
+      metalness: 0.1,
+      roughness: 0.05,
+      ior: 1.5,
+      thickness: 0.5,
+      envMapIntensity: 1.5,
     });
   }, []);
-
 
   useEffect(() => {
     clonedScene.traverse((child) => {
@@ -54,9 +56,26 @@ function Model() {
     });
   }, [clonedScene, debugMaterial]);
 
+  // Normalize global pointer movement from -1 to 1 across the whole window
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      globalMouse.current.x = (event.clientX / window.innerWidth) * 5 - 1;
+      globalMouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      globalMouse.current.z = -(event.clientY / window.innerHeight) * 3 + 1;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   useFrame((state, delta) => {
     if (meshRef.current) {
-      // meshRef.current.rotation.z += delta * 1;
+      const targetX = globalMouse.current.x;
+      const targetY = globalMouse.current.y;
+
+      // Smoothly interpolate. The 1.5 multiplier caps how far it can twist.
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX * .5, delta * 1);
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -targetY * .5, delta * 1);
     }
   })
 
@@ -66,7 +85,6 @@ function Model() {
       ref={meshRef}
       scale={0.05}
       position={[0, -4, -1]}
-      rotation={[1, -1, 0.8]}
     />
   )
 }
@@ -75,7 +93,11 @@ export default function Bulb3D() {
   const { width } = useDebouncedResize(200)
 
   return (
-    <div className={styles['canvas-container']}>
+    <div
+      className={styles['canvas-container']}
+      role="region"
+      aria-label="Interactive 3D Bulb"
+    >
       <Canvas
         key={width}
         camera={{ position: [-15, 0, 0], fov: 50 }}
@@ -85,7 +107,6 @@ export default function Bulb3D() {
         <Float floatingRange={[-0.3, 0.3]} speed={7} rotationIntensity={0} floatIntensity={1}>
           <Model />
         </Float>
-        <OrbitControls makeDefault />
       </Canvas>
     </div>
   )

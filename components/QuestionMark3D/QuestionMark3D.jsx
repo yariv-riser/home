@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
+import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Text3D, Center, Float, Environment } from '@react-three/drei'
 import styles from './QuestionMark3D.module.css'
@@ -27,34 +28,59 @@ function useDebouncedResize(delay = 100) {
 }
 
 function QuestionModel() {
-  const groupRef = useRef();
-  const spinRef = useRef() // 1. Create a new ref for the spinning axis
+  const pointerRef = useRef();
+  const spinRef = useRef();
+
+  // Track global mouse coordinates
+  const globalMouse = useRef({ x: 0, y: 0 });
+
+  // Normalize global pointer movement from -1 to 1
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      globalMouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      globalMouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useFrame((state, delta) => {
-    groupRef.current.rotation.z = 9.6;
-    groupRef.current.rotation.x = 9.6;
-    // 2. Apply the rotation to the wrapper group, NOT the text mesh directly
+    // 1. Pointer tracking interpolation
+    if (pointerRef.current) {
+      const targetX = globalMouse.current.x;
+      const targetY = globalMouse.current.y;
+
+      pointerRef.current.rotation.y = THREE.MathUtils.lerp(pointerRef.current.rotation.y, targetX * .5, delta * 1);
+      pointerRef.current.rotation.x = THREE.MathUtils.lerp(pointerRef.current.rotation.x, -targetY * .5, delta * 1);
+    }
+
+    // 2. Constant spinning animation
     if (spinRef.current) {
       spinRef.current.rotation.y += 0.3 * delta;
     }
   })
 
   return (
-    <group ref={groupRef}>
-      {/* 3. Wrap the <Center> component in our spinning group */}
-      <group ref={spinRef}>
-        <Center>
-          <Text3D
-            font="/Handjet_Regular_Facetype.json"
-            size={6}
-            height={0.4}
-          >
-            ?
-            <meshStandardMaterial
-              color="#6855FB"
-            />
-          </Text3D>
-        </Center>
+    // Outer group holds the static baseline tilt
+    <group rotation={[9.6, 0, 9.6]}>
+      {/* Middle group handles the mouse pointer rotation */}
+      <group ref={pointerRef}>
+        {/* Inner group handles the constant spinning */}
+        <group ref={spinRef}>
+          <Center>
+            <Text3D
+              font="/Handjet_Regular_Facetype.json"
+              size={6}
+              height={0.4}
+            >
+              ?
+              <meshStandardMaterial
+                color="#6855FB" // Riser purple
+              />
+            </Text3D>
+          </Center>
+        </group>
       </group>
     </group>
   )
