@@ -32,7 +32,6 @@ export default function FAQ({ faqs }) {
         </div>
       </div>
 
-
     </section>
   )
 }
