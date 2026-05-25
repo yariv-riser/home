@@ -6,7 +6,7 @@
 
   color: var(--riser-black);
   border-bottom: solid 1px color-mix(in srgb, var(--riser-grey) 10%, transparent);
-  padding: 20px;
+  padding: 20px 20px;
 
   transform: translateY(-150px);
   transition: all .7s ease;
@@ -26,14 +26,35 @@
     ;
     gap: 30px;
 
+
     & .logoLink {
       grid-area: logo;
       display: flex;
       align-items: center;
+
+      position: relative;
+
       border-bottom: none;
 
+      &:hover {
+        & img {
+          transform: skew(0deg, -3deg) scale(1.2);
+          filter: drop-shadow(1px 1px 0px var(--riser-black));
+        }
+      }
+
+      &:active {
+        & img {
+          transform: skew(0deg, -3deg) scale(1.2) translate(2px, 2px);
+          filter: drop-shadow(0px 0px 0px var(--riser-black));
+        }
+      }
+
       & img {
+        position: relative;
         object-fit: contain;
+        transform: skew(0, 0) scale(1);
+        transition: all ease .2s;
       }
     }
 
@@ -82,6 +103,7 @@
 
       & .header-cta {
         grid-area: cta;
+        place-self: center;
 
         padding-block: 5px;
 
