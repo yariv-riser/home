@@ -1,44 +1,48 @@
 .about-section {
   grid-area: about;
 
-  background-image: url('../../../assets/about-section-img-edit.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  clip-path: inset(0 round 40px);
-  box-shadow: inset 0 0 50px var(--riser-grey);
-  margin: 70px;
-
   & .layout {
     display: grid;
-    grid-template:
-      ". title" auto
-      ". description" auto
-      / .9fr 1.1fr;
-    gap: clamp(10px, 2vw, 40px);
+    padding: clamp(10px, 5vw, 50px) clamp(20px, 5vw, 50px);
+    background-image: url('../../../assets/about-section-img-edit.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    clip-path: inset(0 round 40px);
+    box-shadow: inset 0 0 50px white;
+    place-items: end;
+    place-self: stretch;
 
 
-    & h2 {
-      grid-area: title;
+    & .inner {
+      display: grid;
+      grid-template:
+        ". title" auto
+        ". description" auto
+        / .9fr 1.02fr;
+      gap: clamp(10px, 2vw, 40px);
 
-      color: var(--riser-purple);
-      text-align: left;
-      font-size: clamp(60px, 7vw, 110px);
-      line-height: .9;
-    }
+      & h2 {
+        grid-area: title;
 
-    & p {
-      grid-area: description;
+        color: var(--riser-purple);
+        text-align: left;
+        font-size: clamp(60px, 7vw, 110px);
+        line-height: .9;
+      }
 
-      text-align: justify;
+      & p {
+        grid-area: description;
+
+        text-align: justify;
+      }
     }
 
     & figure {
       grid-area: image;
 
       position: relative;
-      aspect-ratio: 1;
     }
   }
 }
@@ -51,8 +55,6 @@
       grid-template:
         "title title" auto
         "description description" auto
-        "image-1 image-1" 2fr
-        "image-2 image-3" 1fr
         / 1fr 1fr;
     }
 
