@@ -1,6 +1,7 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { Handjet, Google_Sans } from 'next/font/google';
+
+import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieBanner from '@/components/CookieBanner/CookieBanner';
 
 import "./globals.css";

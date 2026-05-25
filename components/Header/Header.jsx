@@ -83,7 +83,7 @@ const Header = () => {
           className='logoLink'
           aria-label="Go to Homepage"
         >
-          <Image src={logoUrl} alt="רייזר" width={120} height={40} priority />
+          <Image src={logoUrl} alt="רייזר" width={120} height={40} />
         </Link>
 
         <nav className={`${isMenuOpen ? 'navOpen' : ''}`} aria-label="Main Navigation">

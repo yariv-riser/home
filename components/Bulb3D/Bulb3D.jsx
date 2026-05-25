@@ -42,8 +42,6 @@ function Model() {
       color: '#00FF7F',      // Riser neon green
       metalness: 0.1,
       roughness: 0.05,
-      ior: 1.5,
-      thickness: 0.5,
       envMapIntensity: 1.5,
     });
   }, []);
