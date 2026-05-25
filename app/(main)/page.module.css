@@ -3,9 +3,9 @@
   grid-template:
     'hero' 100dvh
     'about' 80dvh
-    'process' 90dvh
+    'process' 70dvh
     'pricing' auto
-    'faq' 100dvh
+    'faq' 80dvh
     'contact' 100dvh
     / 1fr
   ;
