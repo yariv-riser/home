@@ -57,6 +57,7 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navState.isActive]);
+
   const onNavClick = (e, href) => {
     sendGAEvent('button_click', {
       category: 'engagement',
