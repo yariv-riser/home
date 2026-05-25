@@ -44,32 +44,24 @@ function Model() {
         color: '#f5f5f5',      // Riser light grey
         metalness: 0.1,
         roughness: 0.05,
-        ior: 1.5,
-        thickness: 0.5,
         envMapIntensity: 1.5,
       }),
       screen: new THREE.MeshPhysicalMaterial({
         color: '#6855FB',      // Riser purple
         metalness: 0.1,
         roughness: 0.05,
-        ior: 1.5,
-        thickness: 0.5,
         envMapIntensity: 1.5,
       }),
       button: new THREE.MeshStandardMaterial({
         color: '#00FF7F',      // Riser neon green
         metalness: 0.1,
         roughness: 0.05,
-        ior: 1.5,
-        thickness: 0.5,
         envMapIntensity: 1.5,
       }),
       accent: new THREE.MeshStandardMaterial({
         color: '#111111',      // Riser dark 
         metalness: 0.1,
         roughness: 0.05,
-        ior: 1.5,
-        thickness: 0.5,
         envMapIntensity: 1.5,
       })
     };

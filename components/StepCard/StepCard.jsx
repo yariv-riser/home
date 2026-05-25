@@ -6,8 +6,8 @@ const StepCard = ({ title, description, opening, stepImage }) => {
     <div className={`${styles['step']} hover-float`}>
       <Image
         src={stepImage.url}
-        height={stepImage.height}
-        width={stepImage.width}
+        height={stepImage.dimensions.height}
+        width={stepImage.dimensions.width}
         alt='Step illustration image'
       />
       <h3>{title}</h3>

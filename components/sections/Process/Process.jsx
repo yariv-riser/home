@@ -1,8 +1,7 @@
-import { Compass, Layers2, Check } from 'lucide-react';
 import StepCard from '@/components/StepCard/StepCard';
 
-import compassUrl from '@/assets/process-section/compass.png?url';
-import puzzleUrl from '@/assets/process-section/puzzle.png?url';
+import compassUrl from '@/assets/process-section/compass.avif?url';
+import puzzleUrl from '@/assets/process-section/puzzle.avif?url';
 import keyUrl from '@/assets/process-section/key.png?url';
 import { processSteps } from '@/app/data.json';
 import styles from './Process.module.css';
@@ -25,8 +24,8 @@ const stepImages = [
   {
     url: keyUrl,
     dimensions: {
-      width: 199,
-      height: 163
+      width: 130,
+      height: 130
     }
   },
 ];

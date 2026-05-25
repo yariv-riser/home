@@ -77,7 +77,6 @@ export default function Rocket3D() {
   const [isModelLoaded, setIsModelLoaded] = useState(false);
 
   const handleModelLoaded = () => {
-    console.log('rocket loaded');
     setIsModelLoaded(true)
   }
 

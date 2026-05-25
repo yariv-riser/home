@@ -1,3 +1,15 @@
+@keyframes floatAndRotate {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
 .step {
   position: relative;
   min-width: 0;
@@ -7,8 +19,18 @@
   padding: clamp(15px, 5vw, 30px);
   padding-top: 95px;
 
+  &:hover {
+    & img {
+      scale: 1.15;
+    }
+  }
+
   & img {
     position: absolute;
+    filter: drop-shadow(2px 2px 2px #bcbcbc);
+    transition: all ease .2s;
+
+    animation: floatAndRotate 4s ease-in-out infinite;
   }
 
   &:nth-of-type(1) {
@@ -17,6 +39,7 @@
     & img {
       top: -50px;
       left: -10px;
+      animation-delay: 0s;
     }
   }
 
@@ -25,7 +48,8 @@
 
     & img {
       top: -40px;
-      left: 0;
+      left: 10px;
+      animation-delay: -1.3s;
     }
   }
 
@@ -34,7 +58,8 @@
 
     & img {
       top: -40px;
-      left: 0;
+      left: 25px;
+      animation-delay: -2.6s;
     }
   }
 
