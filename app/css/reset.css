@@ -37,10 +37,10 @@ main {
   &.wrapper-container {
     padding-block-start: var(--header-height);
   }
-}
 
-section {
-  background-color: white;
+  &>section {
+    background-color: white;
+  }
 }
 
 h1,
