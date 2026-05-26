@@ -17,7 +17,7 @@
   border: solid 1px color-mix(in srgb, var(--riser-grey) 10%, transparent);
   border-radius: 30px;
   padding: clamp(15px, 5vw, 30px);
-  padding-top: 95px;
+  padding-top: 65px;
 
   &:hover {
     & img {
@@ -38,7 +38,7 @@
 
     & img {
       top: -50px;
-      left: 10px;
+      left: 30px;
       animation-delay: 0s;
     }
   }
@@ -48,7 +48,7 @@
 
     & img {
       top: -40px;
-      left: 20px;
+      left: 30px;
       animation-delay: -1.3s;
     }
   }

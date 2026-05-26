@@ -1,7 +1,7 @@
 import StepCard from '@/components/StepCard/StepCard';
 
-import compassUrl from '@/assets/process-section/compass.avif?url';
-import puzzleUrl from '@/assets/process-section/puzzle.avif?url';
+import compassUrl from '@/assets/process-section/compass.png?url';
+import puzzleUrl from '@/assets/process-section/puzzle.png?url';
 import keyUrl from '@/assets/process-section/key.png?url';
 import { processSteps } from '@/app/data.json';
 import styles from './Process.module.css';
@@ -10,8 +10,8 @@ const stepImages = [
   {
     url: compassUrl,
     dimensions: {
-      width: 137,
-      height: 110
+      width: 107,
+      height: 120
     }
   },
   {
