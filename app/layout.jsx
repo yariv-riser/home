@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { Handjet, Google_Sans } from 'next/font/google';
 
+import RiserConsoleEgg from '@/components/RiserConsoleEgg/RiserConsoleEgg';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieBanner from '@/components/CookieBanner/CookieBanner';
 
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }) {
         {children}
         <CookieBanner />
         <GoogleAnalytics gaId="G-ZPCGC4MSXL" />
+        <RiserConsoleEgg />
       </body>
     </html>
   );
