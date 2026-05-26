@@ -9,7 +9,8 @@
       ". switch ." auto
       "plan-1 plan-2 plan-3" 1fr
       / 1fr 1fr 1fr;
-    gap: clamp(20px, 2vw, 30px);
+    row-gap: clamp(20px, 2vw, 30px);
+    column-gap: clamp(20px, 3vw, 50px);
 
     min-height: 900px;
     text-align: center;

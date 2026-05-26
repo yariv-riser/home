@@ -16,9 +16,9 @@
 }
 
 .wrapper {
-  place-self: center;
   width: 100%;
-  max-width: 1440px;
+  place-self: center;
+  max-width: 1280px;
 }
 
 .card {
@@ -46,7 +46,7 @@
 }
 
 .btn {
-  font-size: 18px;
+  font-size: clamp(14px, 1.2vw, 18px);
   font-weight: 700;
   text-align: center;
   letter-spacing: 1px;
@@ -55,7 +55,7 @@
   background:
     linear-gradient(to bottom, #6F5CFF, #8E7FFF) padding-box,
     linear-gradient(to right, #8E7FFF, #8373fe) border-box;
-  padding: 15px 30px;
+  padding: clamp(10px, .7vw, 15px) clamp(10px, 1.5vw, 30px);
   border: 4px solid transparent;
   border-radius: 50px;
 

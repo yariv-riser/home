@@ -21,7 +21,7 @@ body {
     / 1fr;
   height: 100vh;
   font-family: var(--font-base);
-  font-size: clamp(16px, 4.5vw, 20px);
+  font-size: clamp(16px, 1.5vw, 20px);
   text-wrap: pretty;
   line-height: 1.5;
   color: var(--riser-black);

@@ -69,7 +69,7 @@
     right: 0;
 
     font-family: var(--font-base);
-    font-size: 20px;
+    font-size: clamp(16px, 1.2vw, 20px);
     letter-spacing: normal;
 
     background-color: var(--riser-green);
@@ -87,7 +87,7 @@
     color: #666;
 
     & span {
-      font-size: clamp(16px, 10vw, 25px);
+      font-size: clamp(16px, 1.5vw, 23px);
       color: var(--riser-black);
     }
   }

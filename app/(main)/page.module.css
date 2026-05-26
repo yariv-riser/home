@@ -2,10 +2,10 @@
   display: grid;
   grid-template:
     'hero' 100dvh
-    'about' 80dvh
-    'process' 70dvh
+    'about' auto
+    'process' auto
     'pricing' auto
-    'faq' 80dvh
+    'faq' auto
     'contact' 100dvh
     / 1fr
   ;
