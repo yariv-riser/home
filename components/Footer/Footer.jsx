@@ -70,7 +70,9 @@ const Footer = () => {
         </nav>
       </div>
 
-      <Ball3D />
+      <div className={styles["ball-container"]}>
+        <Ball3D />
+      </div>
     </footer>
   );
 };

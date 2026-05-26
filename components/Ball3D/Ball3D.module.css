@@ -1,19 +1,11 @@
 .canvas-container {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  inset: 0;
 
-  aspect-ratio: 1;
   width: 100vw;
   height: 100vw;
-  overflow: hidden;
-  cursor: grab;
-  z-index: 0;
-  transform: translate(-40%, 47%);
 
-  &:active {
-    cursor: grabbing;
-  }
+  transform: translate(-35%, 5%);
 
   &:focus-visible {
     outline: 2px solid #00FF7F;
