@@ -1,10 +1,6 @@
 .hero-section {
   grid-area: hero;
-  background-color: #fff;
-  background-image:
-    radial-gradient(at 69% 0%, hsla(149, 100%, 50%, 1) 0px, transparent 50%),
-    radial-gradient(at 0% 55%, hsla(149, 100%, 50%, 1) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, hsla(246, 95%, 65%, 1) 0px, transparent 50%);
+
   overflow: hidden;
 
   & .layout {
