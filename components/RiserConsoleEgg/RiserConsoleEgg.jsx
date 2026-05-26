@@ -29,22 +29,19 @@ const LINES = [
   ...renderWord('ARE WE?'),
 ];
 
-const FRAMES = LINES.map((_, i) => {
-  const startIndex = LINES.length - 1 - i;
-  return '\n'.repeat(startIndex) + LINES.slice(startIndex).join('\n');
-});
+const FRAMES = LINES.map((_, i) => LINES.slice(0, i + 1).join('\n'));
 
-const FRAME_MS = 160;
+const FRAME_MS = 140;
 
 export default function RiserConsoleEgg() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const logoStyle = [
-      'color: #00FF7F',
+      'color: #6855FB',
       'font-size: 11px',
       'line-height: 1',
-      'text-shadow: 0 0 10px rgba(0, 255, 127, 0.35)',
+      'text-shadow: 0 0 10px hsla(247, 95%, 66%, 0.35)',
     ].join(';');
 
     let cancelled = false;
