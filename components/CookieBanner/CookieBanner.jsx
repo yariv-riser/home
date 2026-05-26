@@ -39,41 +39,36 @@ export default function CookieBanner() {
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"
     >
-      <div className={styles['content-wrapper']}>
-
-        <h2 id="cookie-title" className={styles['banner-title']}>
-          הגדרות פרטיות
-        </h2>
-
-        <p id="cookie-desc" className={styles['banner-text']}>
-          אנחנו משתמשים בכלי אנליטיקה במטרה לבנות חוויה טובה יותר עבורכם. למידע נוסף, קראו את{' '}
-          <Link href="/legal/privacy" className={styles['legal-link']}>
-            מדיניות הפרטיות
-          </Link>{' '}
-          ו-
-          <Link href="/legal/terms" className={styles['legal-link']}>
-            תנאי השימוש
-          </Link>{' '}
-          שלנו.
-        </p>
-
-      </div>
-
-      <div className={styles['button-group']}>
-        <button
-          className={styles['decline-btn']}
-          onClick={handleDecline}
-          aria-label="דחיית מעקב סטטיסטי"
-        >
-          דחייה
-        </button>
-        <button
-          className={styles['accept-btn']}
-          onClick={handleAccept}
-          aria-label="אישור מעקב סטטיסטי"
-        >
-          אישור
-        </button>
+      <div className={styles['inner']}>
+        <div className={styles['content-wrapper']}>
+          <p id="cookie-desc" className={styles['banner-text']}>
+            אנחנו משתמשים בכלי אנליטיקה במטרה לבנות חוויה טובה יותר עבורכם. למידע נוסף, קראו את{' '}
+            <Link href="/legal/privacy" className={styles['legal-link']}>
+              מדיניות הפרטיות
+            </Link>{' '}
+            ו-
+            <Link href="/legal/terms" className={styles['legal-link']}>
+              תנאי השימוש
+            </Link>{' '}
+            שלנו.
+          </p>
+        </div>
+        <div className={styles['button-group']}>
+          <button
+            className={styles['decline-btn']}
+            onClick={handleDecline}
+            aria-label="דחיית מעקב סטטיסטי"
+          >
+            דחייה
+          </button>
+          <button
+            className={styles['accept-btn']}
+            onClick={handleAccept}
+            aria-label="אישור מעקב סטטיסטי"
+          >
+            אישור
+          </button>
+        </div>
       </div>
     </aside>
   );
