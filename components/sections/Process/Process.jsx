@@ -10,22 +10,22 @@ const stepImages = [
   {
     url: compassUrl,
     dimensions: {
-      width: 192,
-      height: 157
+      width: 137,
+      height: 110
     }
   },
   {
     url: puzzleUrl,
     dimensions: {
-      width: 177,
-      height: 145
+      width: 130,
+      height: 90
     }
   },
   {
     url: keyUrl,
     dimensions: {
-      width: 130,
-      height: 130
+      width: 110,
+      height: 110
     }
   },
 ];
