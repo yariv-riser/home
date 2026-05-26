@@ -4,6 +4,10 @@
 @import './css/checkbox.css';
 @import './css/switch.css';
 
+:root {
+  interpolate-size: allow-keywords;
+}
+
 .wrapper-container {
   display: flex;
   justify-content: center;

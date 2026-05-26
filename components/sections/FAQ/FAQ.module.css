@@ -5,67 +5,95 @@
   & .layout {
     display: grid;
     grid-template:
-      "title questions" 1fr
-      "description questions" 1fr
-      / 1fr 1.5fr;
-    row-gap: clamp(10px, 2vw, 30px);
-    column-gap: clamp(50px, 4vw, 100px);
+      "inner questions" auto
+      / 1.1fr 1.5fr;
+    gap: clamp(20px, 4vw, 50px);
+    place-items: start;
 
-    & h2 {
-      grid-area: title;
+    & .inner {
+      grid-area: inner;
+      display: grid;
+      grid-template:
+        "title" auto
+        "description" auto
+        / 1fr;
+      row-gap: clamp(10px, 2vw, 30px);
 
-      place-self: end;
-    }
+      & h2 {
+        grid-area: title;
+      }
 
-    & p {
-      grid-area: description;
-
-      place-self: start;
+      & p {
+        grid-area: description;
+      }
     }
 
     & ul {
       grid-area: questions;
-
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       gap: clamp(15px, 2vw, 20px);
       z-index: 1;
+      padding: 0;
+      margin: 0;
 
-      & details {
+      & li {
+        list-style: none;
 
-        position: relative;
+        & details {
+          position: relative;
+          background-color: rgba(255, 255, 255, .5);
+          border: solid 1px var(--riser-black);
+          border-radius: 40px;
+          overflow: hidden;
+          transition: all .2s ease .4s;
 
-        background-color: rgba(255, 255, 255, .7);
-        border: solid 1px rgba(0, 0, 0, .2);
-        border-radius: 40px;
+          &::details-content {
+            block-size: 0;
+            overflow-y: clip;
 
-        & summary {
-          font-size: clamp(16px, 2.5vw, 20px);
-          font-weight: 500;
-          padding: clamp(10px, 2vw, 15px) clamp(10px, 2vw, 30px);
-        }
+            transition: block-size 0.4s ease-out,
+              content-visibility 0.4s allow-discrete,
+              display 0.4s allow-discrete;
+          }
 
-        & p {
-          font-size: clamp(14px, 2.5vw, 18px);
-          padding-block-end: clamp(10px, 2vw, 25px);
-          padding-inline: clamp(10px, 2vw, 30px);
+          &[open]::details-content {
+            block-size: auto;
+          }
+
+          &[open] {
+            background-color: color-mix(in srgb, var(--riser-green) 50%, transparent);
+            box-shadow: 0 0 15px var(--riser-green) inset;
+            border: solid 1px var(--riser-green);
+          }
+
+          & summary {
+            font-size: clamp(16px, 2.5vw, 20px);
+            font-weight: 500;
+            padding: clamp(10px, 2vw, 15px) clamp(10px, 2vw, 30px);
+            cursor: pointer;
+          }
+
+          & p {
+            font-size: clamp(14px, 2.5vw, 18px);
+            padding-block-end: clamp(10px, 2vw, 25px);
+            padding-inline: clamp(10px, 2vw, 30px);
+            margin: 0;
+          }
         }
       }
-
     }
   }
 
   & .question-mark {
     position: absolute;
     inset: 0;
-
     display: flex;
     justify-content: end;
     align-items: center;
-
     opacity: .5;
-    filter: blur(4px);
+    z-index: 0;
+    pointer-events: none;
   }
 }
 
