@@ -11,7 +11,7 @@ const stepImages = [
     url: compassUrl,
     dimensions: {
       width: 107,
-      height: 120
+      height: 123
     }
   },
   {
