@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className={`${styles['layout']} wrapper card`}>
+    <div className={`${styles['layout']} wrapper`}>
 
       <header>
         <h1>

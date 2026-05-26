@@ -25,30 +25,6 @@
   max-width: 1280px;
 }
 
-.card {
-  background-color: #fff;
-  border: solid 4px var(--riser-black);
-  box-shadow: 2px 2px 0 2px var(--riser-black);
-  border-radius: 3px;
-
-  transition: all .2s ease;
-
-  &.hover-float:hover {
-    transform: translateY(-5px);
-  }
-
-  & a {
-    &:hover {
-      color: var(--riser-purple);
-      text-shadow: none;
-    }
-
-    &.btn {
-      color: #fff;
-    }
-  }
-}
-
 .btn {
   font-size: clamp(14px, 1.2vw, 18px);
   font-weight: 700;
