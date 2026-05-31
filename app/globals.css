@@ -87,3 +87,10 @@
     white-space: nowrap;
   }
 }
+
+@media (width <=1024px) {
+  .btn {
+    font-size: clamp(14px, 2.6vw, 26px);
+    padding: clamp(10px, 1.7vw, 20px) clamp(10px, 3vw, 40px);
+  }
+}

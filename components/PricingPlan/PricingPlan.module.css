@@ -141,23 +141,9 @@
   }
 }
 
-@media (width < 970px) {
+@media (width <=1024px) {
   .plan {
-    grid-template:
-      "title features ." auto
-      "subtitle features price" 1fr
-      "cta cta cta" auto
-      / .5fr 1fr auto;
-
     aspect-ratio: unset;
-
-    & ul {
-      place-self: center;
-    }
-
-    & button {
-      margin-block-start: 1ch;
-    }
   }
 }
 

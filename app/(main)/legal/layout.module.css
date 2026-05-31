@@ -1,3 +1,7 @@
+.layout {
+  background-color: white;
+}
+
 main.page {
   padding-block-start: var(--header-height);
 
@@ -9,6 +13,7 @@ main.page {
     max-width: 850px;
     margin-block-start: clamp(15px, 7vw, 30px);
     padding: clamp(15px, 7vw, 50px) clamp(10px, 5vw, 50px);
+    border-radius: 40px;
 
     & h1 {
       font-size: clamp(50px, 7vw, 70px);

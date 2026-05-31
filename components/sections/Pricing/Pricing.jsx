@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Check } from 'lucide-react';
 
 import styles from './Pricing.module.css'
 import PricingPlan from '@/components/PricingPlan/PricingPlan';
@@ -23,7 +22,7 @@ export default function Pricing({ plans }) {
         </h2>
 
         <p>
-          לבנות נוכחות דיגיטלית זה דבר מאתגר. בדיוק בגלל זה בנינו עבורכם מסלולים שקופים ומודולריים, שיתאימו בדיוק לקצב הצמיחה שלכם.<br />מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
+          לבנות נוכחות דיגיטלית זה דבר מאתגר.<br />בדיוק בגלל זה בנינו עבורכם מסלולים שקופים ומודולריים, שיתאימו בדיוק לקצב הצמיחה שלכם.<br />מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
         </p>
 
         <div className={`${styles['plan-switch']}`}>

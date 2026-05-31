@@ -69,7 +69,7 @@ function Model() {
   useFrame((state, delta) => {
     if (meshRef.current) {
       const targetX = globalMouse.current.x;
-      const targetY = globalMouse.current.y;
+      const targetY = globalMouse.current.y - .5;
 
       // Smoothly interpolate. The 1.5 multiplier caps how far it can twist.
       meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX * .5, delta * 1);

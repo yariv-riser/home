@@ -10,3 +10,11 @@
     border-radius: 8px;
   }
 }
+
+@media (width <=1024px) {
+  .canvas-container {
+    --size: 60vw;
+    height: var(--size);
+    width: var(--size);
+  }
+}

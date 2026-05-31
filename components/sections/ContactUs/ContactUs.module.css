@@ -99,33 +99,34 @@
   }
 }
 
-@media (width < 1000px) {
+@media (width <=1024px) {
   .contact-section {
+    margin-block-end: 100px;
+
     & .layout {
       grid-template:
         "title" auto
         "description" auto
         "form" auto
         / 1fr;
+
+      h2,
+      p {
+        text-align: center;
+      }
+
+      h2 {
+        font-size: clamp(60px, 8vw, 80px);
+      }
+
+      & p {
+        margin-block-end: 40px;
+      }
+
 
       & form {
         max-width: clamp(45%, 50vw, 50%);
-      }
-    }
-  }
-}
-
-@media (width < 650px) {
-  .contact-section {
-    & .layout {
-      grid-template:
-        "title" auto
-        "description" auto
-        "form" auto
-        / 1fr;
-
-      & form {
-        max-width: unset;
+        gap: clamp(5px, 3vw, 25px);
       }
     }
   }

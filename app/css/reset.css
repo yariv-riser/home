@@ -230,3 +230,9 @@ hr {
     scroll-behavior: smooth;
   }
 }
+
+@media (width<=1024px) {
+  body {
+    font-size: clamp(16px, 4vw, 20px);
+  }
+}

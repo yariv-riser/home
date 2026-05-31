@@ -9,5 +9,18 @@
     'contact' 100dvh
     / 1fr
   ;
+}
 
+@media (width <=1024px) {
+  .home {
+    grid-template:
+      'hero' 100dvh
+      'about' auto
+      'process' auto
+      'pricing' auto
+      'faq' auto
+      'contact' auto
+      / 1fr
+    ;
+  }
 }

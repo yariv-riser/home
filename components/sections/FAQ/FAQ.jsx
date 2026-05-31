@@ -22,7 +22,6 @@ export default function FAQ({ faqs }) {
         <ul>
           {faqs.map(faq => (
             <li key={faq.question}>
-              {/* The name attribute groups these into a native, exclusive accordion */}
               <details name="faq-accordion">
                 <summary>{faq.question}</summary>
                 <p>{faq.answer}</p>

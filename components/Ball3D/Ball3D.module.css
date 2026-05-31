@@ -13,3 +13,9 @@
     outline-offset: 4px;
   }
 }
+
+@media (width <=1024px) {
+  .canvas-container {
+    transform: translate(-30%, 70%);
+  }
+}

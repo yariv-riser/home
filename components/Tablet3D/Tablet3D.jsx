@@ -121,7 +121,7 @@ function Model() {
 }
 
 export default function Tablet3D() {
-  const { width } = useDebouncedResize(200)
+  const { width } = useDebouncedResize(200);
 
   return (
     <div
