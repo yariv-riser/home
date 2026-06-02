@@ -20,7 +20,7 @@ main.page {
     }
 
     & h2 {
-      font-size: clamp(35px, 5vw, 45px);
+      font-size: clamp(32px, 5vw, 45px);
       margin-block-end: clamp(10px, 7vw, 15px);
     }
 
