@@ -122,3 +122,17 @@
     }
   }
 }
+
+@media (width <=767px) {
+  .faq-section {
+    & .layout {
+      ul {
+        li {
+          details {
+            border-radius: 35px;
+          }
+        }
+      }
+    }
+  }
+}

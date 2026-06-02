@@ -46,15 +46,11 @@
             var(--riser-purple),
             var(--riser-green),
             var(--riser-purple));
-        z-index: -1;
-
-        background-size: 400%;
-        animation: glow 10s linear infinite forwards;
-      }
-
-      &:before {
+        background-size: 600%;
         filter: blur(25px);
-        transform: translate3d(0, 0, 0);
+        animation: glow 10s linear infinite alternate;
+
+        z-index: -1;
       }
 
       &::after {
@@ -127,6 +123,21 @@
       & form {
         max-width: clamp(45%, 50vw, 50%);
         gap: clamp(5px, 3vw, 25px);
+
+        &:before {
+          animation: none;
+        }
+      }
+    }
+  }
+}
+
+@media (width <=767px) {
+  .contact-section {
+    & .layout {
+      & form {
+        max-width: 90%;
+        gap: 20px;
       }
     }
   }

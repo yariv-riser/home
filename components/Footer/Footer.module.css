@@ -123,6 +123,7 @@ footer.footer[role="contentinfo"] {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    opacity: .5;
   }
 }
 

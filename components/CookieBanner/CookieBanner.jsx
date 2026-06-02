@@ -38,6 +38,7 @@ export default function CookieBanner() {
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"
+      tabIndex={0}
     >
       <div className={styles['inner']}>
         <div className={styles['content-wrapper']}>
@@ -55,18 +56,18 @@ export default function CookieBanner() {
         </div>
         <div className={styles['button-group']}>
           <button
-            className={styles['decline-btn']}
-            onClick={handleDecline}
-            aria-label="דחיית מעקב סטטיסטי"
-          >
-            דחייה
-          </button>
-          <button
             className={styles['accept-btn']}
             onClick={handleAccept}
             aria-label="אישור מעקב סטטיסטי"
           >
             אישור
+          </button>
+          <button
+            className={styles['decline-btn']}
+            onClick={handleDecline}
+            aria-label="דחיית מעקב סטטיסטי"
+          >
+            דחייה
           </button>
         </div>
       </div>
