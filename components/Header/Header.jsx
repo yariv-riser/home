@@ -8,6 +8,8 @@ import logoUrl from '@/assets/logo.svg?url';
 import { X } from 'lucide-react';
 import { sendGAEvent } from '@/utils/analytics';
 import { navLinks } from '@/app/data.json';
+import Ball3D from '@/components/Ball3D/Ball3D';
+
 
 const Header = () => {
   const { navState, handleLinkClick } = useNavigation();
@@ -87,11 +89,6 @@ const Header = () => {
         </Link>
 
         <nav className={`${isMenuOpen ? 'navOpen' : ''}`} aria-label="Main Navigation">
-          {isMenuOpen && (
-            <button type="button" className='close-btn' onClick={() => setIsMenuOpen(false)}>
-              <X size={60} strokeWidth={3} />
-            </button>
-          )}
 
           <ul className='navList'>
             {navLinks.map(link => (
@@ -109,11 +106,15 @@ const Header = () => {
 
           <Link
             href='/#contact-section'
-            className={`btn cta header-cta`}
+            className={`${isMenuOpen ? 'header-cta' : 'btn cta header-cta'}`}
             onClick={(e) => onNavClick(e, '/#contact-section')}
           >
             בואו נדבר
           </Link>
+
+          <div className='ball-container'>
+            <Ball3D color='#111' />
+          </div>
         </nav>
 
         <button className='mobileToggle' onClick={() => setIsMenuOpen(!isMenuOpen)}>

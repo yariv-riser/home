@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import styles from './Ball3D.module.css';
 
-export default function WireframeSphere() {
+export default function WireframeSphere({ color = '#158d51' }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function WireframeSphere() {
 
     const geometry = new THREE.SphereGeometry(2.4, 32, 32);
     const material = new THREE.MeshBasicMaterial({
-      color: '#158d51',
+      color,
       wireframe: true,
     });
     const sphere = new THREE.Mesh(geometry, material);
