@@ -51,27 +51,29 @@
     box-shadow: 2px 2px 0 1px #fff;
   }
 
-  &:hover {
-    color: white;
-    transform: translateY(-2px);
-    box-shadow:
-      0 0 10px -5px white inset,
-      0 7px 15px rgba(0, 0, 0, .2);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 10px -5px white inset,
+        0 7px 15px rgba(0, 0, 0, .2);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 
-    &.white-shadow {
-      box-shadow: 4px 4px 0 1px #fff;
+      &.white-shadow {
+        box-shadow: 4px 4px 0 1px #fff;
+      }
     }
-  }
 
-  &:active {
-    transform: translateY(5px);
-    box-shadow:
-      0 0 10px -5px white inset,
-      0 1px 0px rgba(0, 0, 0, .2);
+    &:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 0 10px -5px white inset,
+        0 1px 0px rgba(0, 0, 0, .2);
 
-    &.white-shadow {
-      box-shadow: 2px 2px 0 1px #fff;
+      &.white-shadow {
+        box-shadow: 2px 2px 0 1px #fff;
+      }
     }
   }
 }
