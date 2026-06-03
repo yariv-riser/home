@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useNavigation } from '@/context/NavigationContext';
 import logoUrl from '@/assets/logo.svg?url';
-import { X } from 'lucide-react';
 import { sendGAEvent } from '@/utils/analytics';
 import { navLinks } from '@/app/data.json';
 import Ball3D from '@/components/Ball3D/Ball3D';
