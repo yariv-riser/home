@@ -54,9 +54,9 @@ const Footer = () => {
         </nav>
 
         <ul className={styles['social-links']}>
-          <li><a href="https://facebook.com">פייסבוק</a></li>
-          <li><a href="https://instagram.com">אינסטגרם</a></li>
-          <li><a href="https://linkedin.com">לינקדאין</a></li>
+          <li><a href="https://www.facebook.com/riserinteractive/">פייסבוק</a></li>
+          {/* <li><a href="https://instagram.com">אינסטגרם</a></li> */}
+          {/* <li><a href="https://linkedin.com">לינקדאין</a></li> */}
         </ul>
 
         <p className={styles['copyright']}>© {currentYear} רייזר. כל הזכויות שמורות.</p>
