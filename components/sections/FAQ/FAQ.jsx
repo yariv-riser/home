@@ -1,7 +1,18 @@
+'use client';
+
 import QuestionMark3D from '@/components/QuestionMark3D/QuestionMark3D';
+import { sendGAEvent } from '@/utils/analytics';
+
 import styles from './FAQ.module.css';
 
 export default function FAQ({ faqs }) {
+
+  const onQuestionClick = qStr => {
+    sendGAEvent('faq_click', {
+      question: qStr,
+    });
+  };
+
   return (
     <section
       id="faq-section"
@@ -23,7 +34,7 @@ export default function FAQ({ faqs }) {
           {faqs.map(faq => (
             <li key={faq.question}>
               <details name="faq-accordion">
-                <summary>{faq.question}</summary>
+                <summary onClick={() => onQuestionClick(faq.question)}>{faq.question}</summary>
                 <p>{faq.answer}</p>
               </details>
             </li>
