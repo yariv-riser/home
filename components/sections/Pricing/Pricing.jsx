@@ -5,9 +5,9 @@ import { useState } from 'react';
 import styles from './Pricing.module.css'
 import PricingPlan from '@/components/PricingPlan/PricingPlan';
 
-export default function Pricing({ plans }) {
+export default function Pricing({ plans, deviceType }) {
 
-  const [mode, setMode] = useState('projects');
+  const [mode, setMode] = useState('hours');
 
   function handlePlanTypeChange() {
     setMode(mode === 'projects' ? 'hours' : 'projects');
@@ -22,10 +22,10 @@ export default function Pricing({ plans }) {
         </h2>
 
         <p>
-          לבנות נוכחות דיגיטלית זה דבר מאתגר.<br />בדיוק בגלל זה בנינו עבורכם מסלולים שקופים ומודולריים, שיתאימו בדיוק לקצב הצמיחה שלכם.<br />מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
+          לבנות נוכחות דיגיטלית זה דבר מאתגר.<br />בדיוק בגלל זה בנינו עבורכם מסלולים שיתאימו בדיוק לקצב הצמיחה שלכם.<br />מהצעד הראשון ועד למסירה – אנחנו השותפים שלכם למסע.
         </p>
 
-        <div className={`${styles['plan-switch']}`}>
+        {/* <div className={`${styles['plan-switch']}`}>
           <label htmlFor="planType">חיוב לפי סוג פרוייקט</label>
           <label className='switch'>
             <input
@@ -37,7 +37,7 @@ export default function Pricing({ plans }) {
             <span className="slider"></span>
           </label>
           <label htmlFor="planType">חיוב לפי שעה</label>
-        </div>
+        </div> */}
 
         {plans[mode].map(({ id,
           name,
@@ -49,6 +49,7 @@ export default function Pricing({ plans }) {
           <PricingPlan
             key={id}
             id={id}
+            deviceType={deviceType}
             mode={mode}
             name={name}
             description={description}
