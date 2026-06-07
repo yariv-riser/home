@@ -1,3 +1,5 @@
+import { headers } from 'next/headers';
+import { userAgent } from 'next/server';
 import SectionTracker from '@/components/SectionsTracker';
 
 import Hero from '@/components/sections/Hero/Hero';
@@ -13,6 +15,9 @@ import { plans, faqs } from '@/app/data.json';
 import styles from './page.module.css';
 
 export default async function Home() {
+
+  const reqHeaders = await headers();
+  const { device } = userAgent({ headers: reqHeaders });
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -75,7 +80,7 @@ export default async function Home() {
           sectionName="Hero"
           elId="hero-section"
         >
-          <Hero />
+          <Hero deviceType={device.type || 'desktop'} />
         </SectionTracker>
 
         <SectionTracker
@@ -110,7 +115,10 @@ export default async function Home() {
           sectionName="Pricing"
           elId="pricing-section"
         >
-          <Pricing plans={plans} />
+          <Pricing
+            plans={plans}
+            deviceType={device.type || 'desktop'}
+          />
         </SectionTracker>
 
 

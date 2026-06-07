@@ -3,9 +3,11 @@ import Link from 'next/link';
 import Tablet3D from '@/components/Tablet3D/Tablet3D';
 import Rocket3D from '@/components/Rocket3D/Rocket3D';
 import Bulb3D from '@/components/Bulb3D/Bulb3D';
+import ContactBtn from '@/components/ContactBtn/ContactBtn'
+
 import styles from './Hero.module.css';
 
-export default async function Hero() {
+export default function Hero({ deviceType }) {
   return (
     <section id='hero-section' className={`${styles['hero-section']} wrapper-container`} aria-labelledby="hero-section">
       <div className={`${styles['layout']} wrapper`}>
@@ -18,7 +20,7 @@ export default async function Hero() {
             </h2>
           </div>
           <div className={styles['cta-container']}>
-            <Link className='btn cta' href="#contact-section">בואו נדבר</Link>
+            <ContactBtn deviceType={deviceType} />
             <Link className='btn' href="#pricing-section">מה אנחנו מציעים</Link>
           </div>
         </div>

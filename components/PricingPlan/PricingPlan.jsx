@@ -5,6 +5,7 @@ import styles from './PricingPlan.module.css'
 
 export default function PricingPlan(
   { id,
+    deviceType,
     name,
     description,
     featuresTitle,
@@ -40,13 +41,29 @@ export default function PricingPlan(
         </ul>
       }
 
-      <a
-        className='btn cta'
-        aria-describedby={`חבילת-${id}`}
-        href='#contact-section'
-      >
-        {cta}
-      </a>
+      {deviceType === 'mobile' ?
+        <a
+          href={`https://wa.me/+972504840588`}
+          className={`btn cta`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`צרו איתנו קשר בוואטסאפ לדבי חבילת ${name}`}
+          aria-describedby={`חבילת-${name}`}
+        >
+          {cta}
+        </a>
+        :
+        <a
+          href='#contact-section'
+          className='btn cta'
+          aria-describedby={`חבילת-${name}`}
+        >
+          {cta}
+        </a>
+      }
+
+
+
 
     </article>
   )

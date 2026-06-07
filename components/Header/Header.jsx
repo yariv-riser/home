@@ -8,9 +8,10 @@ import logoUrl from '@/assets/logo.svg?url';
 import { sendGAEvent } from '@/utils/analytics';
 import { navLinks } from '@/app/data.json';
 import Ball3D from '@/components/Ball3D/Ball3D';
+import HeaderContactBtn from '../HeaderContactBtn/HeaderContactBtn';
 
 
-const Header = () => {
+const Header = ({ deviceType }) => {
   const { navState, handleLinkClick } = useNavigation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,13 +104,7 @@ const Header = () => {
             ))}
           </ul>
 
-          <Link
-            href='/#contact-section'
-            className={`${isMenuOpen ? 'header-cta' : 'btn cta header-cta'}`}
-            onClick={(e) => onNavClick(e, '/#contact-section')}
-          >
-            בואו נדבר
-          </Link>
+          <HeaderContactBtn deviceType={deviceType} isMenuOpen={isMenuOpen} />
 
           <div className='ball-container'>
             <Ball3D color='#111' />

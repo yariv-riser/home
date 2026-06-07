@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useNavigation } from '@/context/NavigationContext';
 
-import Whatsapp from '../Whatsapp/Whatsapp';
 import Phone from '../Phone/Phone';
 import Email from '../Email/Email';
 
@@ -31,7 +30,6 @@ const Footer = () => {
 
           <Email className={styles['email']} />
           <Phone className={styles['phone']} />
-          <Whatsapp className={styles['whatsapp']} />
 
           <a href="https://maps.app.goo.gl/DrQUqJvB8PopMZNN9" target="_blank" rel="noopener noreferrer">
             קיבוץ כפר גליקסון
