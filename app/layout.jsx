@@ -25,8 +25,30 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "סטודיו לבניית אתרים ואפלקציות | רייזר",
-  description: "חוויות אינטראקטיביות מרגשות",
+  title: "רייזר | סטודיו לבניית אתרים ואפלקציות",
+  description: "מומחים בבניית אתרים וחנויות, אפליקציות ופתרונות דיגיטליים מתקדמים",
+  openGraph: {
+    title: 'רייזר | סטודיו לבניית אתרים ואפלקציות',
+    description: 'מומחים בבניית אתרים וחנויות, אפליקציות ופתרונות דיגיטליים מתקדמים',
+    url: 'https://riser.co.il',
+    siteName: 'Riser Web Studio',
+    images: [
+      {
+        url: '/riser-og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Preview image for Riser.co.il',
+      },
+    ],
+    locale: 'he_IL',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '"רייזר | סטודיו לבניית אתרים ואפלקציות',
+    description: 'מומחים בבניית אתרים וחנויות, אפליקציות ופתרונות דיגיטליים מתקדמים',
+    images: ['/riser-og-image.png']
+  },
 };
 
 export default async function RootLayout({ children }) {
