@@ -107,7 +107,7 @@ const Header = ({ deviceType }) => {
           <HeaderContactBtn deviceType={deviceType} isMenuOpen={isMenuOpen} />
 
           <div className='ball-container'>
-            <Ball3D color='#111' />
+            <Ball3D color='#6855FB' />
           </div>
         </nav>
 
