@@ -200,7 +200,7 @@ footer.footer[role="contentinfo"] {
   }
 }
 
-@media (width < 413px) {
+@media (width <=430px) {
 
   footer.footer[role="contentinfo"] {
     & .layout {
