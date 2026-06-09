@@ -9,8 +9,18 @@ export default function CookieBanner() {
 
   useEffect(() => {
     const consent = localStorage.getItem('riser-cookie-consent');
+
     if (!consent) {
+      // First-time visitor: show banner
       setShowBanner(true);
+    } else if (consent === 'granted') {
+      // Returning visitor: apply their granted consent immediately 
+      // so the initial GA4 page_view fires with gcs=G111
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
     }
   }, []);
 
@@ -19,8 +29,15 @@ export default function CookieBanner() {
     setShowBanner(false);
 
     if (typeof window !== 'undefined' && window.gtag) {
+      // 1. Update the consent state
       window.gtag('consent', 'update', {
         'analytics_storage': 'granted'
+      });
+
+      // 2. Fire the stitch event so GA4 captures the current URL and UTMs
+      window.gtag('event', 'consent_status_updated', {
+        consent_status: 'granted',
+        page_location: window.location.href // Explicitly pass the full URL with UTMs
       });
     }
   };
@@ -28,6 +45,12 @@ export default function CookieBanner() {
   const handleDecline = () => {
     localStorage.setItem('riser-cookie-consent', 'denied');
     setShowBanner(false);
+
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+    }
   };
 
   if (!showBanner) return null;
