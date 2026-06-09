@@ -147,6 +147,16 @@
   }
 }
 
+@media (width <=430px) {
+  .plan {
+    margin-block-end: 40px;
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+}
+
 @keyframes float {
   0% {
     transform: rotate(5deg) translate(20%, -70%);

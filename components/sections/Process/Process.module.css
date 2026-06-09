@@ -8,7 +8,6 @@
       "step-1 step-2 step-3" auto
       / 1fr 1fr 1fr;
     column-gap: clamp(10px, 2vw, 30px);
-    row-gap: 80px;
 
     & h2 {
       grid-area: title;
@@ -24,10 +23,10 @@
   }
 }
 
-@media (width <=1024px) {
+@media (width <=1180px) {
   .process-section {
     .layout {
-      row-gap: 220px;
+      row-gap: 40px;
     }
   }
 }
@@ -46,5 +45,17 @@
       gap: 5vw;
     }
 
+  }
+}
+
+@media (width <=430px) {
+  .process-section {
+    & .layout {
+      gap: 0;
+
+      h2 {
+        margin-block-end: 20px;
+      }
+    }
   }
 }

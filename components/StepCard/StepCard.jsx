@@ -10,8 +10,10 @@ const StepCard = ({ title, description, opening, stepImage }) => {
         width={stepImage.dimensions.width}
         alt='Step illustration image'
       />
-      <h3>{title}</h3>
-      <p><span>{opening}</span>{description}</p>
+      <div className={`${styles['inner']}`}>
+        <h3>{title}</h3>
+        <p><span>{opening}</span>{description}</p>
+      </div>
     </div>
   );
 };
