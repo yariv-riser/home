@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import mobileMenuIcon from '@/public/mobile-menu-icon.svg';
 import { useNavigation } from '@/context/NavigationContext';
 import logoUrl from '@/assets/logo.svg?url';
 import { sendGAEvent } from '@/utils/analytics';
@@ -112,9 +113,12 @@ const Header = ({ deviceType }) => {
         </nav>
 
         <button className='mobileToggle' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
-          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
-          <span className={isMenuOpen ? 'barOpen' : 'bar'}></span>
+          <Image
+            src={mobileMenuIcon}
+            alt="Mobile Menu Icon"
+            width={35}
+            height={35}
+          />
         </button>
 
       </div>
