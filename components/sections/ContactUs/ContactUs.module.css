@@ -1,3 +1,16 @@
+@keyframes pulse {
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes shine-effect {
+  100% {
+    right: 100%;
+  }
+}
+
 .contact-section {
   grid-area: contact;
 
@@ -85,6 +98,31 @@
         &.success {
           background-color: var(--riser-green);
           color: var(--riser-black);
+
+          position: relative;
+          overflow: hidden;
+          padding: 10px;
+          border-radius: 10px;
+          opacity: 0;
+          animation: pulse .5s ease-in-out forwards,
+            fade-in .3 ease forwards;
+
+          &::after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            right: -100%;
+
+            width: 30%;
+            height: 100%;
+
+            transform: rotate(-45deg) scale(1.2);
+            background-color: rgba(255, 255, 255, .5);
+            animation: shine-effect 1s ease-in;
+          }
+
+
         }
 
         &.error {
@@ -114,11 +152,6 @@
       h2 {
         font-size: clamp(60px, 8vw, 80px);
       }
-
-      & p {
-        margin-block-end: 40px;
-      }
-
 
       & form {
         max-width: clamp(45%, 50vw, 50%);
