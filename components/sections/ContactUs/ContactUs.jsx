@@ -114,7 +114,7 @@ export default function ContactUs() {
             <div aria-live="polite" className={`${styles['status-message']} ${styles[status === 'success' ? 'success' : 'error']}`}>
               {status === 'success' && (
                 <p>
-                  ההודעה נשלחה! נחזור אליכם בהקדם.
+                  נחזור אליכם בהקדם.
                 </p>
               )}
               {status === 'error' && (
